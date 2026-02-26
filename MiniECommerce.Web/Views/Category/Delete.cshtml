@@ -1,0 +1,16 @@
+﻿@model MiniECommerce.Entity.Entities.Category
+@{
+    ViewData["Title"] = "Kategori Sil";
+}
+
+<h2>Silmek İstediğinize Emin misiniz?</h2>
+
+<div>
+    <h4>@Model.Name</h4>
+    <p>@Model.Description</p>
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Evet, Sil</button>
+        <a asp-action="Index" class="btn btn-secondary">İptal</a>
+    </form>
+</div>

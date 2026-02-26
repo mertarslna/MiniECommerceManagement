@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="MiniECommerce.Business/MiniECommerce.Business.csproj" />
+  <Project Path="MiniECommerce.DataAccess/MiniECommerce.DataAccess.csproj" />
+  <Project Path="MiniECommerce.Entity/MiniECommerce.Entity.csproj" />
+  <Project Path="MiniECommerce.Web/MiniECommerce.Web.csproj" />
+</Solution>
