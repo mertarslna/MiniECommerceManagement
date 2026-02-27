@@ -20,4 +20,11 @@
     <ProjectReference Include="..\MiniECommerce.Entity\MiniECommerce.Entity.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Category\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="Views\Order\" />
+    <Folder Include="Views\Product\" />
+  </ItemGroup>
+
 </Project>

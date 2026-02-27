@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Çözüm Öğeleri/">
+    <File Path="Migration Terminal Komut.txt" />
+  </Folder>
   <Project Path="MiniECommerce.Business/MiniECommerce.Business.csproj" />
   <Project Path="MiniECommerce.DataAccess/MiniECommerce.DataAccess.csproj" />
   <Project Path="MiniECommerce.Entity/MiniECommerce.Entity.csproj" />

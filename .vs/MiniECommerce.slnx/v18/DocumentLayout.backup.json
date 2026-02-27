@@ -1,22 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\",
+  "WorkspaceRootPath": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9FB5AF6F-6A03-56A0-FBAB-D8AC5CCB8173}|MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj|c:\\users\\merta\\source\\repos\\miniecommerce\\miniecommerce.dataaccess\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8AA8A132-9123-FAAF-7E13-DE7A87343CE2}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{8AA8A132-9123-FAAF-7E13-DE7A87343CE2}|C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\Migration Terminal Komut.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8AA8A132-9123-FAAF-7E13-DE7A87343CE2}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{8AA8A132-9123-FAAF-7E13-DE7A87343CE2}|solutionrelative:Migration Terminal Komut.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|c:\\users\\merta\\desktop\\miniecommercelastv\\miniecommerce.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|solutionrelative:miniecommerce.web\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FB5AF6F-6A03-56A0-FBAB-D8AC5CCB8173}|MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj|c:\\users\\merta\\desktop\\miniecommercelastv\\miniecommerce.dataaccess\\repositories\\concrete\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FB5AF6F-6A03-56A0-FBAB-D8AC5CCB8173}|MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj|solutionrelative:miniecommerce.dataaccess\\repositories\\concrete\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FB5AF6F-6A03-56A0-FBAB-D8AC5CCB8173}|MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj|c:\\users\\merta\\desktop\\miniecommercelastv\\miniecommerce.dataaccess\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FB5AF6F-6A03-56A0-FBAB-D8AC5CCB8173}|MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj|solutionrelative:miniecommerce.dataaccess\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C0648B5-0449-846C-4CC7-3E202B9C825F}|MiniECommerce.Entity\\MiniECommerce.Entity.csproj|c:\\users\\merta\\source\\repos\\miniecommerce\\miniecommerce.entity\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C0648B5-0449-846C-4CC7-3E202B9C825F}|MiniECommerce.Entity\\MiniECommerce.Entity.csproj|solutionrelative:miniecommerce.entity\\entities\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{006A072F-7DFE-6FCC-980B-EBA4C085C564}|MiniECommerce.Business\\MiniECommerce.Business.csproj|c:\\users\\merta\\desktop\\miniecommercelastv\\miniecommerce.business\\concrete\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{006A072F-7DFE-6FCC-980B-EBA4C085C564}|MiniECommerce.Business\\MiniECommerce.Business.csproj|solutionrelative:miniecommerce.business\\concrete\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|c:\\users\\merta\\source\\repos\\miniecommerce\\miniecommerce.web\\views\\order\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|solutionrelative:miniecommerce.web\\views\\order\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{006A072F-7DFE-6FCC-980B-EBA4C085C564}|MiniECommerce.Business\\MiniECommerce.Business.csproj|c:\\users\\merta\\desktop\\miniecommercelastv\\miniecommerce.business\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{006A072F-7DFE-6FCC-980B-EBA4C085C564}|MiniECommerce.Business\\MiniECommerce.Business.csproj|solutionrelative:miniecommerce.business\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FB5AF6F-6A03-56A0-FBAB-D8AC5CCB8173}|MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj|c:\\users\\merta\\source\\repos\\miniecommerce\\miniecommerce.dataaccess\\repositories\\concrete\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FB5AF6F-6A03-56A0-FBAB-D8AC5CCB8173}|MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj|solutionrelative:miniecommerce.dataaccess\\repositories\\concrete\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{006A072F-7DFE-6FCC-980B-EBA4C085C564}|MiniECommerce.Business\\MiniECommerce.Business.csproj|c:\\users\\merta\\desktop\\miniecommercelastv\\miniecommerce.business\\interfaces\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{006A072F-7DFE-6FCC-980B-EBA4C085C564}|MiniECommerce.Business\\MiniECommerce.Business.csproj|solutionrelative:miniecommerce.business\\interfaces\\iproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +38,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Web\\Views\\Order\\Details.cshtml",
-              "RelativeDocumentMoniker": "MiniECommerce.Web\\Views\\Order\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Web\\Views\\Order\\Details.cshtml",
-              "RelativeToolTip": "MiniECommerce.Web\\Views\\Order\\Details.cshtml",
-              "ViewState": "AgIAABcAAAAAAAAAAAAYwCYAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-02-26T08:48:24.407Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.DataAccess\\Repositories\\Concrete\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "MiniECommerce.DataAccess\\Repositories\\Concrete\\OrderRepository.cs",
-              "ToolTip": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.DataAccess\\Repositories\\Concrete\\OrderRepository.cs",
-              "RelativeToolTip": "MiniECommerce.DataAccess\\Repositories\\Concrete\\OrderRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAYwBQAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:48:14.029Z",
+              "DocumentIndex": 0,
+              "Title": "Migration Terminal Komut.txt",
+              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\Migration Terminal Komut.txt",
+              "RelativeDocumentMoniker": "Migration Terminal Komut.txt",
+              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\Migration Terminal Komut.txt",
+              "RelativeToolTip": "Migration Terminal Komut.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-02-27T10:48:45.22Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "OrderItem.cs",
-              "DocumentMoniker": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Entity\\Entities\\OrderItem.cs",
-              "RelativeDocumentMoniker": "MiniECommerce.Entity\\Entities\\OrderItem.cs",
-              "ToolTip": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Entity\\Entities\\OrderItem.cs",
-              "RelativeToolTip": "MiniECommerce.Entity\\Entities\\OrderItem.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAIAxwAYAAAAqAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Web\\Program.cs",
+              "RelativeDocumentMoniker": "MiniECommerce.Web\\Program.cs",
+              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Web\\Program.cs",
+              "RelativeToolTip": "MiniECommerce.Web\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:46:21.737Z",
+              "WhenOpened": "2026-02-27T10:48:22.632Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.DataAccess\\Context\\AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.DataAccess\\Context\\AppDbContext.cs",
               "RelativeDocumentMoniker": "MiniECommerce.DataAccess\\Context\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.DataAccess\\Context\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.DataAccess\\Context\\AppDbContext.cs",
               "RelativeToolTip": "MiniECommerce.DataAccess\\Context\\AppDbContext.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAYwCcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T08:44:03.389Z",
+              "WhenOpened": "2026-02-27T10:47:49.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CategoryRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.DataAccess\\Repositories\\Concrete\\CategoryRepository.cs",
+              "RelativeDocumentMoniker": "MiniECommerce.DataAccess\\Repositories\\Concrete\\CategoryRepository.cs",
+              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.DataAccess\\Repositories\\Concrete\\CategoryRepository.cs",
+              "RelativeToolTip": "MiniECommerce.DataAccess\\Repositories\\Concrete\\CategoryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T10:47:21.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Business\\Concrete\\UserService.cs",
+              "RelativeDocumentMoniker": "MiniECommerce.Business\\Concrete\\UserService.cs",
+              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Business\\Concrete\\UserService.cs",
+              "RelativeToolTip": "MiniECommerce.Business\\Concrete\\UserService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T10:43:03.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Business\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "MiniECommerce.Business\\Interfaces\\IUserService.cs",
+              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Business\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "MiniECommerce.Business\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T10:42:33.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IProductService.cs",
+              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Business\\Interfaces\\IProductService.cs",
+              "RelativeDocumentMoniker": "MiniECommerce.Business\\Interfaces\\IProductService.cs",
+              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Business\\Interfaces\\IProductService.cs",
+              "RelativeToolTip": "MiniECommerce.Business\\Interfaces\\IProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-27T10:42:30.474Z",
               "EditorCaption": ""
             }
           ]

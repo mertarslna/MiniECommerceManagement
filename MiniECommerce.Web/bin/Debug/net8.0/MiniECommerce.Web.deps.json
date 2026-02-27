@@ -801,6 +801,8 @@
       "MiniECommerce.DataAccess/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.24",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.24",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.24",
           "MiniECommerce.Entity": "1.0.0"
         },
         "runtime": {

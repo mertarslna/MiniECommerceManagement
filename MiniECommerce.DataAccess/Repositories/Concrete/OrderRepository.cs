@@ -15,7 +15,7 @@ namespace MiniECommerce.DataAccess.Repositories.Concrete
 
         public Order GetOrderWithDetails(int id)
         {
-            return _context.Order
+            return _context.Orders
                 .Include(o => o.OrderItems)
                     .ThenInclude(oi => oi.Product)
                 .FirstOrDefault(o => o.Id == id);

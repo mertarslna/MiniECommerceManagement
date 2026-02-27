@@ -10,8 +10,6 @@ namespace MiniECommerce.Business.Services.Interfaces
         Product GetById(int id);
         void Add(Product product);
         void Update(Product product);
-        bool UpdateImage(int id, string imageUrl);
-        bool UpdateCategory(int id, int categoryId);
         void Delete(int id);
         bool Activate(int id);
         bool Deactivate(int id);

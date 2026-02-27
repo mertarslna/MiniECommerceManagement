@@ -14,7 +14,7 @@ namespace MiniECommerce.DataAccess.Repositories.Concrete
         }
         public List<Product> GetProductsWithCategories()
         {
-            return _context.Product
+            return _context.Products
                                  .Include(p => p.Category)
                                  .ToList();
         }

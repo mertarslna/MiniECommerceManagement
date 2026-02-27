@@ -567,11 +567,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Entity\\MiniECommerce.Entity.csproj",
+      "projectUniqueName": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Entity\\MiniECommerce.Entity.csproj",
       "projectName": "MiniECommerce.Entity",
-      "projectPath": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Entity\\MiniECommerce.Entity.csproj",
+      "projectPath": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Entity\\MiniECommerce.Entity.csproj",
       "packagesPath": "C:\\Users\\Merta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Entity\\obj\\",
+      "outputPath": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Entity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -21,28 +21,10 @@ namespace MiniECommerce.Business.Services.Concrete
             _repository.Add(product);
         }
         public List<Product> GetAllWithCategories() { return _repository.GetProductsWithCategories(); }
-        public void Update(Product product) { _repository.Update(product); }
-        public bool UpdateImage(int id, string imageUrl)
+        public void Update(Product product)
         {
-            var product = _repository.GetById(id);
-            if (product != null)
-            {
-                product.ImageUrl = imageUrl;
-                _repository.Update(product);
-                return true;
-            }
-            return false;
-        }
-        public bool UpdateCategory(int id, int categoryId)
-        {
-            var product = _repository.GetById(id);
-            if (product != null)
-            {
-                product.CategoryId = categoryId;
-                _repository.Update(product);
-                return true;
-            }
-            return false;
+            product.CreatedDate = DateTime.Now;
+            _repository.Update(product);
         }
         public void Delete(int id) { _repository.Delete(_repository.GetById(id)); }
         public bool Activate(int id)
@@ -56,7 +38,6 @@ namespace MiniECommerce.Business.Services.Concrete
             }
             return false;
         }
-
         public bool Deactivate(int id)
         {
             var product = _repository.GetById(id);

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vYKAnHZQ7sg=",
+  "dgSpecHash": "rQ2p45sZIug=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Entity\\MiniECommerce.Entity.csproj",
+  "projectFilePath": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Entity\\MiniECommerce.Entity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Merta\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.24\\microsoft.entityframeworkcore.8.0.24.nupkg.sha512",
     "C:\\Users\\Merta\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.24\\microsoft.entityframeworkcore.abstractions.8.0.24.nupkg.sha512",

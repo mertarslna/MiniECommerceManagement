@@ -1499,6 +1499,8 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.24",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.24",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.24",
           "MiniECommerce.Entity": "1.0.0"
         },
         "compile": {
@@ -4029,11 +4031,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Web\\MiniECommerce.Web.csproj",
+      "projectUniqueName": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Web\\MiniECommerce.Web.csproj",
       "projectName": "MiniECommerce.Web",
-      "projectPath": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Web\\MiniECommerce.Web.csproj",
+      "projectPath": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Web\\MiniECommerce.Web.csproj",
       "packagesPath": "C:\\Users\\Merta\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Web\\obj\\",
+      "outputPath": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4055,14 +4057,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Business\\MiniECommerce.Business.csproj": {
-              "projectPath": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Business\\MiniECommerce.Business.csproj"
+            "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Business\\MiniECommerce.Business.csproj": {
+              "projectPath": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Business\\MiniECommerce.Business.csproj"
             },
-            "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj": {
-              "projectPath": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj"
+            "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj"
             },
-            "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Entity\\MiniECommerce.Entity.csproj": {
-              "projectPath": "C:\\Users\\Merta\\source\\repos\\MiniECommerce\\MiniECommerce.Entity\\MiniECommerce.Entity.csproj"
+            "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Entity\\MiniECommerce.Entity.csproj": {
+              "projectPath": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.Entity\\MiniECommerce.Entity.csproj"
             }
           }
         }
