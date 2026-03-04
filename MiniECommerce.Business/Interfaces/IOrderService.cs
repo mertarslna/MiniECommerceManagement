@@ -1,16 +1,18 @@
 ﻿using MiniECommerce.Entity.Entities;
+using MiniECommerce.Entity.Enums;
 
-namespace MiniECommerce.Business.Services.Interfaces
+namespace MiniECommerce.Business.Interfaces
 {
     public interface IOrderService
     {
         // Adding, listing, updating, status updating and deleting functions for orders
-        List<Order> GetAll();
-        Order GetById(int id);
-        Order GetByIdWithDetails(int id);
-        void Add(Order order);
-        void Update(Order order);
-        void Delete(int id);
-        bool UpdateStatus(int id, string status);
+        Task<IEnumerable<Order>> GetAllAsync();
+        Task<Order> GetByIdAsync(int id);
+        Task<IEnumerable<Order>> GetAllWithDetailsAsync();
+        Task<Order> GetByIdWithDetailsAsync(int id);
+        Task AddAsync(Order order);
+        Task UpdateAsync(Order order);
+        Task DeleteAsync(int id);
+        Task UpdateStatusAsync(int id, OrderStatuses status);
     }
 }

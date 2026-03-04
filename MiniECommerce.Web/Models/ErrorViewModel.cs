@@ -1,6 +1,6 @@
 namespace MiniECommerce.Web.Models
 {
-    public class xx
+    public class ErrorViewModel
     {
         public string? RequestId { get; set; }
 

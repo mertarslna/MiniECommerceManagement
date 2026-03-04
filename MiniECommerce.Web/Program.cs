@@ -1,12 +1,31 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
-using MiniECommerce.Business.Services.Concrete;
-using MiniECommerce.Business.Services.Interfaces;
+using MiniECommerce.Business.Concrete;
+using MiniECommerce.Business.Interfaces;
+using MiniECommerce.Business.Mapping;
 using MiniECommerce.DataAccess.Context;
 using MiniECommerce.DataAccess.Repositories.Concrete;
 using MiniECommerce.DataAccess.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllersWithViews();
+
+// API Controllers
+builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// EĞER AUTOMAPPER KULLANILACAKSA
+builder.Services.AddAutoMapper(config =>
+{
+    config.AddProfile<CategoryProfile>();
+    config.AddProfile<OrderItemProfile>();
+    config.AddProfile<OrderProfile>();
+    config.AddProfile<ProductProfile>();
+    config.AddProfile<UserProfile>();
+});
+// SATIRI EKLENMELİ
 
 // DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -16,13 +35,16 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
 
 // Services
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<ICategoryService, CategoryManager>();
+builder.Services.AddScoped<IProductService, ProductManager>();
+builder.Services.AddScoped<IOrderService, OrderManager>();
+builder.Services.AddScoped<IUserService, UserManager>();
+builder.Services.AddScoped<IOrderItemService, OrderItemManager>();
 
-builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -32,6 +54,12 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+else
+{
+    // Swagger
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

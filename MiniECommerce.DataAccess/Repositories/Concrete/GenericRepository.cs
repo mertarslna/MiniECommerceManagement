@@ -1,47 +1,27 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MiniECommerce.DataAccess.Context;
 using MiniECommerce.DataAccess.Repositories.Interfaces;
 
-namespace MiniECommerce.DataAccess.Repositories
+namespace MiniECommerce.DataAccess.Repositories.Concrete
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         // CRUD operations
         // Create, Read, Update, Delete
-        protected readonly DbContext _context;
+        protected readonly AppDbContext _context;
         protected readonly DbSet<T> _dbSet;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository(AppDbContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();
         }
 
-        public List<T> GetAll()
-        {
-            return _dbSet.ToList();
-        }
-
-        public T GetById(int id)
-        {
-            return _dbSet.Find(id);
-        }
-
-        public void Add(T entity)
-        {
-            _dbSet.Add(entity);
-            _context.SaveChanges();
-        }
-
-        public void Update(T entity)
-        {
-            _dbSet.Update(entity);
-            _context.SaveChanges();
-        }
-
-        public void Delete(T entity)
-        {
-            _dbSet.Remove(entity);
-            _context.SaveChanges();
-        }
+        public async Task AddAsync(T entity) => await _dbSet.AddAsync(entity);
+        public async Task<T?> GetByIdAsync(int id) => await _dbSet.FindAsync(id);
+        public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
+        public void Update(T entity) => _dbSet.Update(entity);
+        public void Delete(T entity) => _dbSet.Remove(entity);
+        public async Task<int> SaveChangesAsync() => await _context.SaveChangesAsync();
     }
 }

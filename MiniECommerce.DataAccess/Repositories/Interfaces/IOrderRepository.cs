@@ -4,6 +4,7 @@ namespace MiniECommerce.DataAccess.Repositories.Interfaces
 {
     public interface IOrderRepository : IGenericRepository<Order>
     {
-        Order GetOrderWithDetails(int id);
+        Task<IEnumerable<Order>> GetAllWithDetailsAsync();
+        Task<Order> GetByIdWithDetailsAsync(int id);
     }
 }

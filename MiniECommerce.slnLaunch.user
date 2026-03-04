@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Yeni Profil",
+    "Projects": [
+      {
+        "Path": "MiniECommerce.Web\\MiniECommerce.Web.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "MiniECommerce.API\\MiniECommerce.API.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

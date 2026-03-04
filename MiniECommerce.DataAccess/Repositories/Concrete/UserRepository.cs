@@ -7,10 +7,8 @@ namespace MiniECommerce.DataAccess.Repositories.Concrete
 {
     public class UserRepository : GenericRepository<User>, IUserRepository
     {
-        private readonly AppDbContext _context;
         public UserRepository(AppDbContext context) : base(context)
         {
-            _context = context;
         }
     }
 }

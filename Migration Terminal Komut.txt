@@ -1,21 +1,18 @@
 dotnet ef migrations add <MIGRATION_ADI> --project MiniECommerce.DataAccess --startup-project MiniECommerce.Web
-dotnet ef migrations add <MIGRATION_ADI> --startup-project ../MiniECommerce.Web
+dotnet ef migrations add <MIGRATION_ADI> --startup-project ../MiniECommerce.
 
-// Migration Oluşturulduktan Sonra Veritabanına Uygulamak İçin,
-
+// Migration Oluşturulduktan Sonra Veritabanına Uygulamak İçin
 dotnet ef database update --project MiniECommerce.DataAccess --startup-project MiniECommerce.Web
 dotnet ef database update --startup-project ../MiniECommerce.Web
 
-// Migration Veritabanına Uygulandıysa (Update-Database yapıldıysa),
-
+// Remove işlemi - Migration Veritabanına Uygulandıysa (Update-Database yapıldıysa)
 dotnet ef database update <BirOncekiMigrationAdi> --project MiniECommerce.DataAccess --startup-project MiniECommerce.Web
 dotnet ef migrations remove --project MiniECommerce.DataAccess --startup-	project MiniECommerce.Web
 
-// Migration Sadece Oluşturulduysa (Henüz Update Yapılmadıysa),
-
-dotnet ef migrations remove --project MiniECommerce.DataAccess --startup-project MiniECommerce.Web
-
+// Remove işlemi - Migration Sadece Oluşturulduysa (Henüz Update Yapılmadıysa)
+dotnet ef migrations remove --project MiniECommerce.DataAccess --startup-project MiniECommerce.
 dotnet ef migrations add tableNamesFixed --project MiniECommerce.DataAccess --startup-project MiniECommerce.Web
 
 // Veritabanını silmek için,
+dotnet ef database drop --project MiniECommerce.DataAccess --startup-project MiniECommerce.Web
 dotnet ef database drop --startup-project ../MiniECommerce.Web

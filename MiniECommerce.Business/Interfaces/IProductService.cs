@@ -1,17 +1,15 @@
 ﻿using MiniECommerce.Entity.Entities;
 
-namespace MiniECommerce.Business.Services.Interfaces
+namespace MiniECommerce.Business.Interfaces
 {
     public interface IProductService
     {
-        // Adding, listing, updating, adding image, category selection and deleting functions for products
-        List<Product> GetAll();
-        List<Product> GetAllWithCategories();
-        Product GetById(int id);
-        void Add(Product product);
-        void Update(Product product);
-        void Delete(int id);
-        bool Activate(int id);
-        bool Deactivate(int id);
+        Task<IEnumerable<Product>> GetAllAsync();
+        Task<IEnumerable<Product>> GetAllWithCategoriesAsync();
+        Task<Product> GetByIdAsync(int id);
+        Task AddAsync(Product product);
+        Task UpdateAsync(Product product);
+        Task DeleteAsync(int id);
+        Task<bool> ToggleActivationAsync(int id);
     }
 }

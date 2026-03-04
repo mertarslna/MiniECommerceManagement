@@ -27,7 +27,7 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"
-                        asp-controller="Home" asp-action="Index">
+                       asp-controller="Home" asp-action="Index">
                         <i class="bi bi-grid-1x2-fill"></i>
                         <span>Ana Sayfa</span>
                     </a>
@@ -37,23 +37,30 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Product" ? "active" : "")"
-                        asp-controller="Product" asp-action="Index">
+                       asp-controller="Product" asp-action="Index">
                         <i class="bi bi-box-seam-fill"></i>
                         <span>Ürünler</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Category" ? "active" : "")"
-                        asp-controller="Category" asp-action="Index">
+                       asp-controller="Category" asp-action="Index">
                         <i class="bi bi-tags-fill"></i>
                         <span>Kategoriler</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Order" ? "active" : "")"
-                        asp-controller="Order" asp-action="Index">
+                       asp-controller="Order" asp-action="Index">
                         <i class="bi bi-truck"></i>
                         <span>Siparişler</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Swagger" ? "active" : "")"
+                       asp-controller="swagger" asp-action="Index">
+                        <i class="bi bi-code-slash"></i>
+                        <span>Swagger</span>
                     </a>
                 </li>
             </ul>

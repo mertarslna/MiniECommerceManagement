@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g4917jcQnHM=",
+  "dgSpecHash": "JVYlfl+7KH4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Merta\\Desktop\\MiniECommerceLastV\\MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Merta\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Merta\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

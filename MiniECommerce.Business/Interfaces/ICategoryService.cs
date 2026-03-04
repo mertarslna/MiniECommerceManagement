@@ -1,17 +1,16 @@
 ﻿using MiniECommerce.Entity.Entities;
 
-namespace MiniECommerce.Business.Services.Interfaces
+namespace MiniECommerce.Business.Interfaces
 {
     public interface ICategoryService
     {
         // Adding, listing, updating, deleting and soft deleting functions for categories
-        List<Category> GetAll();
-        List<Category> GetActiveCategories();
-        Category GetById(int id);
-        void Add(Category category);
-        void Update(Category category);
-        void Delete(int id);
-        bool Deactivate(int id);
-        bool Activate(int id);
+        Task<IEnumerable<Category>> GetAllAsync();
+        Task<IEnumerable<Category>> GetActiveCategoriesAsync();
+        Task<Category?> GetByIdAsync(int id);
+        Task AddAsync(Category category);
+        Task UpdateAsync(Category category);
+        Task DeleteAsync(int id);
+        Task<bool> ToggleActivationAsync(int id);
     }
 }

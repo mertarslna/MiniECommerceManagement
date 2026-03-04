@@ -13,7 +13,6 @@ C:\Users\Merta\source\repos\MiniECommerce\MiniECommerce.Entity\obj\Debug\net8.0\
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Entity\bin\Debug\net8.0\MiniECommerce.Entity.deps.json
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Entity\bin\Debug\net8.0\MiniECommerce.Entity.dll
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Entity\bin\Debug\net8.0\MiniECommerce.Entity.pdb
-C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Entity\obj\Debug\net8.0\MiniECommerce.Entity.csproj.AssemblyReference.cache
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Entity\obj\Debug\net8.0\MiniECommerce.Entity.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Entity\obj\Debug\net8.0\MiniECommerce.Entity.AssemblyInfoInputs.cache
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Entity\obj\Debug\net8.0\MiniECommerce.Entity.AssemblyInfo.cs

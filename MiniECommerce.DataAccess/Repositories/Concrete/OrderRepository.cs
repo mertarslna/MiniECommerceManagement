@@ -7,18 +7,23 @@ namespace MiniECommerce.DataAccess.Repositories.Concrete
 {
     public class OrderRepository : GenericRepository<Order>, IOrderRepository
     {
-        private readonly AppDbContext _context;
         public OrderRepository(AppDbContext context) : base(context)
         {
-            _context = context;
         }
 
-        public Order GetOrderWithDetails(int id)
+        public async Task<IEnumerable<Order>> GetAllWithDetailsAsync()
         {
-            return _context.Orders
+            return await _context.Orders
                 .Include(o => o.OrderItems)
-                    .ThenInclude(oi => oi.Product)
-                .FirstOrDefault(o => o.Id == id);
+                .ThenInclude(oi => oi.Product)
+                .ToListAsync();
+        }
+        public async Task<Order> GetByIdWithDetailsAsync(int id)
+        {
+            return await _context.Orders
+                .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Product)
+                .FirstOrDefaultAsync(o => o.Id == id);
         }
 
     }

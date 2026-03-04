@@ -1,54 +1,62 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MiniECommerce.Entity.Entities;
+using MiniECommerce.Entity.Enums;
 
 namespace MiniECommerce.DataAccess.Context
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        public AppDbContext(DbContextOptions options) : base(options)
         {
         }
-
-        // DbSet Tanımlamaların (Bunların zaten olduğunu varsayıyorum)
+        // DbSet Properties
+        // Categories dbset'i ekleyelim
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Product -> Category (1-N)
+            // Product -> Category (N - 1)
             modelBuilder.Entity<Product>()
                 .HasOne(p => p.Category)
                 .WithMany(c => c.Products)
-                .HasForeignKey(p => p.CategoryId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasForeignKey(p => p.CategoryId);
 
-            // Order -> User (1-N)
+            // Order -> User (N - 1)
             modelBuilder.Entity<Order>()
                 .HasOne(o => o.User)
                 .WithMany(u => u.Orders)
                 .HasForeignKey(o => o.UserId);
 
-            // OrderItem -> Order (1-N)
+            // OrderItem -> Order (N - 1)
             modelBuilder.Entity<OrderItem>()
                 .HasOne(oi => oi.Order)
                 .WithMany(o => o.OrderItems)
                 .HasForeignKey(oi => oi.OrderId);
 
-            // OrderItem -> Product (1-N)
+            // OrderItem -> Product (N - 1)
             modelBuilder.Entity<OrderItem>()
                 .HasOne(oi => oi.Product)
                 .WithMany(p => p.OrderItems)
                 .HasForeignKey(oi => oi.ProductId);
 
-            modelBuilder.Entity<Product>().Property(p => p.Price).HasColumnType("decimal(18,2)");
-            modelBuilder.Entity<Order>().Property(o => o.TotalPrice).HasColumnType("decimal(18,2)");
-            modelBuilder.Entity<OrderItem>().Property(oi => oi.UnitPrice).HasColumnType("decimal(18,2)");
+            // Decimal Precisions
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasPrecision(18, 2);
+            modelBuilder.Entity<OrderItem>()
+                .Property(oi => oi.UnitPrice)
+                .HasPrecision(18, 2);
+            modelBuilder.Entity<Order>()
+                .Property(o => o.TotalPrice)
+                .HasPrecision(18, 2);
 
+            // Mock Datas
             DateTime seedDate = DateTime.Now;
 
             modelBuilder.Entity<Category>().HasData(
@@ -57,8 +65,8 @@ namespace MiniECommerce.DataAccess.Context
             );
 
             modelBuilder.Entity<User>().HasData(
-                new User { Id = 1, Name = "Mert Arslan", Email = "mert@admin.com", Password = "123", UserType = "Admin" },
-                new User { Id = 2, Name = "Standart Müşteri", Email = "musteri@test.com", Password = "123", UserType = "Customer" }
+                new User { Id = 1, Name = "Mert Arslan", Email = "mert@admin.com", Password = "123", UserType = UserTypes.Administrator },
+                new User { Id = 2, Name = "Standart Müşteri", Email = "musteri@test.com", Password = "123", UserType = UserTypes.Customer }
             );
 
             modelBuilder.Entity<Product>().HasData(

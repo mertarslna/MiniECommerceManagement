@@ -51,14 +51,14 @@ namespace MiniECommerce.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2026, 2, 27, 13, 50, 50, 801, DateTimeKind.Local).AddTicks(4807),
+                            CreatedDate = new DateTime(2026, 3, 4, 9, 14, 49, 484, DateTimeKind.Local).AddTicks(4078),
                             IsActive = true,
                             Name = "Elektronik"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2026, 2, 27, 13, 50, 50, 801, DateTimeKind.Local).AddTicks(4807),
+                            CreatedDate = new DateTime(2026, 3, 4, 9, 14, 49, 484, DateTimeKind.Local).AddTicks(4078),
                             IsActive = true,
                             Name = "Giyim"
                         });
@@ -79,11 +79,11 @@ namespace MiniECommerce.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("UserId")
@@ -114,6 +114,7 @@ namespace MiniECommerce.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("UnitPrice")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
@@ -153,6 +154,7 @@ namespace MiniECommerce.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Stock")
@@ -169,7 +171,7 @@ namespace MiniECommerce.DataAccess.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2026, 2, 27, 13, 50, 50, 801, DateTimeKind.Local).AddTicks(4807),
+                            CreatedDate = new DateTime(2026, 3, 4, 9, 14, 49, 484, DateTimeKind.Local).AddTicks(4078),
                             IsActive = true,
                             Name = "Oyuncu Laptop",
                             Price = 35000m,
@@ -179,7 +181,7 @@ namespace MiniECommerce.DataAccess.Migrations
                         {
                             Id = 2,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2026, 2, 27, 13, 50, 50, 801, DateTimeKind.Local).AddTicks(4807),
+                            CreatedDate = new DateTime(2026, 3, 4, 9, 14, 49, 484, DateTimeKind.Local).AddTicks(4078),
                             IsActive = true,
                             Name = "Siyah Tişört",
                             Price = 300m,
@@ -269,7 +271,7 @@ namespace MiniECommerce.DataAccess.Migrations
                     b.HasOne("MiniECommerce.Entity.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");

@@ -4,6 +4,6 @@ namespace MiniECommerce.DataAccess.Repositories.Interfaces
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
-        List<Product> GetProductsWithCategories();
+        Task<IEnumerable<Product>> GetAllWithCategoriesAsync();
     }
 }

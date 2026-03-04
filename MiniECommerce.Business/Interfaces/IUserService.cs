@@ -1,14 +1,13 @@
 ﻿using MiniECommerce.Entity.Entities;
 
-namespace MiniECommerce.Business.Services.Interfaces
+namespace MiniECommerce.Business.Interfaces
 {
     public interface IUserService
     {
-        // Adding, listing, updating, deleting and soft deleting functions for categories
-        List<User> GetAll();
-        User GetById(int id);
-        void Add(User user);
-        void Update(User user);
-        void Delete(int id);
+        Task<IEnumerable<User>> GetAllAsync();
+        Task<User> GetByIdAsync(int id);
+        Task AddAsync(User user);
+        Task UpdateAsync(User user);
+        Task DeleteAsync(int id);
     }
 }

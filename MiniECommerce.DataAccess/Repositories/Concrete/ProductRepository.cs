@@ -7,16 +7,14 @@ namespace MiniECommerce.DataAccess.Repositories.Concrete
 {
     public class ProductRepository : GenericRepository<Product>, IProductRepository
     {
-        private readonly AppDbContext _context;
         public ProductRepository(AppDbContext context) : base(context)
         {
-            _context = context;
         }
-        public List<Product> GetProductsWithCategories()
+        public async Task<IEnumerable<Product>> GetAllWithCategoriesAsync()
         {
-            return _context.Products
-                                 .Include(p => p.Category)
-                                 .ToList();
+            return await _context.Products
+                .Include(p => p.Category)
+                .ToListAsync();
         }
     }
 }

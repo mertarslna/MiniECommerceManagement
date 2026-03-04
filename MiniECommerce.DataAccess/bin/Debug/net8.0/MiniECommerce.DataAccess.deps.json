@@ -830,9 +830,6 @@
         }
       },
       "MiniECommerce.Entity/1.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "8.0.24"
-        },
         "runtime": {
           "MiniECommerce.Entity.dll": {
             "assemblyVersion": "1.0.0.0",
