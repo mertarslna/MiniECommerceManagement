@@ -11,6 +11,7 @@ namespace MiniECommerce.Business.Mapping
             CreateMap<OrderItem, OrderItemListDto>();
 
             CreateMap<OrderItemUpdateDto, OrderItem>().ReverseMap();
+            
         }
     }
 

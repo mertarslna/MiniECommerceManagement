@@ -5,7 +5,7 @@ using MiniECommerce.Entity.Entities;
 
 namespace MiniECommerce.Web.ApiControllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;

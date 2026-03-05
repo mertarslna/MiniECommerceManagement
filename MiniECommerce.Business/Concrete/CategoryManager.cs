@@ -45,7 +45,7 @@ namespace MiniECommerce.Business.Concrete
         public async Task UpdateAsync(CategoryUpdateDto dto)
         {
             var existingCategory = await _repository.GetByIdAsync(dto.Id);
-            if (existingCategory is null) throw new Exception("Kategori bulunamadı.");
+            if (existingCategory is null) throw new Exception("Category not found.");
 
             _mapper.Map(dto, existingCategory);
 

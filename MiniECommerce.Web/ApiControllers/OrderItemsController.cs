@@ -8,7 +8,7 @@ namespace MiniECommerce.Web.ApiControllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderItemsController : Controller
+    public class OrderItemsController : ControllerBase
     {
         private readonly IOrderItemService _orderItemService;
         private readonly IMapper _mapper;

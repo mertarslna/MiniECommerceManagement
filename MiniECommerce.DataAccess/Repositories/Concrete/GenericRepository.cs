@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MiniECommerce.DataAccess.Context;
 using MiniECommerce.DataAccess.Repositories.Interfaces;
+using MiniECommerce.Entity.Entities;
 
 namespace MiniECommerce.DataAccess.Repositories.Concrete
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
         // CRUD operations
         // Create, Read, Update, Delete

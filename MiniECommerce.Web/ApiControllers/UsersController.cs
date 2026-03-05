@@ -3,7 +3,7 @@ using MiniECommerce.Business.Interfaces;
 
 namespace MiniECommerce.Web.ApiControllers
 {
-    public class UsersController : Controller
+    public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
 

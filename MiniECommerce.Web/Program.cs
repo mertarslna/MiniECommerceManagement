@@ -11,10 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Controllerda API kullanımı için yapılandırma
 builder.Services.AddHttpClient("ApiClient", client => client.BaseAddress = new Uri(builder.Configuration["ApiSettings:BaseUrl"]));
 
-builder.Services.AddControllersWithViews();
 
 // API Controllers
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
