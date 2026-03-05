@@ -8,11 +8,10 @@ namespace MiniECommerce.Business.Mapping
     {
         public CategoryProfile()
         {
-            CreateMap<Category, CategoryListDto>();
-
+            CreateMap<Category, CategoryListDto>().ReverseMap();
             CreateMap<CategoryCreateDto, Category>();
-
             CreateMap<CategoryUpdateDto, Category>().ReverseMap();
+            CreateMap<CategoryListDto, CategoryUpdateDto>().ReverseMap();
         }
     }
 

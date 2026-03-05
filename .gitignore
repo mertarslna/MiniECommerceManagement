@@ -1,0 +1,22 @@
+# Visual Studio Cache ve Ayar Klasörü
+.vs/
+
+# Derleme (Build) Çıktıları
+/bin/
+/obj/
+MiniEcommerce.Business/bin/
+MiniEcommerce.Business/obj/
+MiniEcommerce.DataAccess/bin/
+MiniEcommerce.DataAccess/obj/
+MiniEcommerce.Entity/bin/
+MiniEcommerce.Entity/obj/
+MiniEcommerce.Web/bin/
+MiniEcommerce.Web/obj/
+
+# Alternatif olarak tüm alt klasörlerdeki bin ve obj'leri yakalamak için:
+**/bin/
+**/obj/
+
+# Diğer VS Dosyaları
+*.user
+*.sln.docstates

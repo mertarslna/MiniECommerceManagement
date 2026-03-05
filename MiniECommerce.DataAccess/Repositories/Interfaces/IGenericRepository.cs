@@ -19,7 +19,6 @@
         Task<IEnumerable<T>> GetAllAsync();
         void Update(T entity);
         void Delete(T entity);
-        // Kayıtlarda yapılan değişiklerin veritabanına yansıtılması için SaveChangesAsync metodu eklenebilir:
         Task<int> SaveChangesAsync();
     }
 }

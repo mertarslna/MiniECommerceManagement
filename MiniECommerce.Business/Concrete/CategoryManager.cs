@@ -1,70 +1,77 @@
-﻿using MiniECommerce.Business.Interfaces;
+﻿using AutoMapper;
+using MiniECommerce.Business.DTOs.Category;
+using MiniECommerce.Business.Interfaces;
 using MiniECommerce.DataAccess.Repositories.Interfaces;
 using MiniECommerce.Entity.Entities;
 
 namespace MiniECommerce.Business.Concrete
 {
-    public class CategoryManager : ICategoryService
+    public class CategoryManager(ICategoryRepository repository, IMapper mapper) : ICategoryService
     {
-        private readonly ICategoryRepository _repository;
+        private readonly ICategoryRepository _repository = repository;
+        private readonly IMapper _mapper = mapper;
 
-        public CategoryManager(ICategoryRepository repository)
+        public async Task<IEnumerable<CategoryListDto>> GetAllAsync()
         {
-            _repository = repository;
+            var categories = await _repository.GetAllAsync();
+
+            return _mapper.Map<IEnumerable<CategoryListDto>>(categories);
         }
 
-        public async Task<IEnumerable<Category>> GetAllAsync() => await _repository.GetAllAsync();
-        public async Task<IEnumerable<Category>> GetActiveCategoriesAsync() => await _repository.GetActiveCategoriesAsync();
-
-        public async Task<Category?> GetByIdAsync(int id)
+        public async Task<IEnumerable<CategoryListDto>> GetActiveCategoriesAsync()
         {
-            if (id <= 0)
-                throw new ArgumentException("Invalid category ID.", nameof(id));
+            var categories = await _repository.GetActiveCategoriesAsync();
+            return _mapper.Map<IEnumerable<CategoryListDto>>(categories);
+        }
 
+        public async Task<CategoryListDto?> GetByIdAsync(int id)
+        {
+            if (id <= 0) return null;
             var category = await _repository.GetByIdAsync(id);
 
-            return category;
+            return _mapper.Map<CategoryListDto>(category);
         }
 
-        public async Task AddAsync(Category category)
+        public async Task AddAsync(CategoryCreateDto dto)
         {
-            if (category.Name == null || category.Name.Trim() == "")
-                throw new Exception("Category name cannot be empty.");
+            var category = _mapper.Map<Category>(dto);
+            category.IsActive = true;
+            category.CreatedDate = DateTime.Now;
 
             await _repository.AddAsync(category);
             await _repository.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Category category)
+        public async Task UpdateAsync(CategoryUpdateDto dto)
         {
-            if (category == null || category.Id <= 0)
-                throw new Exception("Invalid category.");
+            var existingCategory = await _repository.GetByIdAsync(dto.Id);
+            if (existingCategory is null) throw new Exception("Kategori bulunamadı.");
 
-            _repository.Update(category);
+            _mapper.Map(dto, existingCategory);
+
+            _repository.Update(existingCategory);
             await _repository.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
             var category = await _repository.GetByIdAsync(id);
-            if (category == null)
-                throw new ArgumentException("Category not found.");
-
-            _repository.Delete(category);
-            await _repository.SaveChangesAsync();
+            if (category is not null)
+            {
+                _repository.Delete(category);
+                await _repository.SaveChangesAsync();
+            }
         }
 
         public async Task<bool> ToggleActivationAsync(int id)
         {
             var category = await _repository.GetByIdAsync(id);
-            if (category != null)
-            {
-                category.IsActive = !category.IsActive;
-                _repository.Update(category);
-                await _repository.SaveChangesAsync();
-                return true;
-            }
-            return false;
+            if (category is null) return false;
+
+            category.IsActive = !category.IsActive;
+            _repository.Update(category);
+            await _repository.SaveChangesAsync();
+            return true;
         }
     }
 }

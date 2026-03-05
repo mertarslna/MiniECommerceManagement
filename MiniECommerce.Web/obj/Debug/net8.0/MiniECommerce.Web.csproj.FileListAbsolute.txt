@@ -459,9 +459,9 @@ C:\Users\Merta\Desktop\MiniECommerceLastV\MiniECommerce.Web\obj\Debug\net8.0\sta
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Web\bin\Debug\net8.0\AutoMapper.dll
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Web\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Web\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Web\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Web\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Web\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Web\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Web\obj\Debug\net8.0\MiniECommerce.Web.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Merta\Desktop\MiniECommerce\MiniECommerce.Web\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

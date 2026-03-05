@@ -6,7 +6,7 @@ namespace MiniECommerce.Business.DTOs.Product
     {
         [Required(ErrorMessage = "Ürün adı boş bırakılamaz.")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Ürün adı 2 ile 50 karakter arasında olmalıdır.")]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [MaxLength(250, ErrorMessage = "Açıklama alanı en fazla 250 karakter olabilir.")]
         public string? Description { get; set; }

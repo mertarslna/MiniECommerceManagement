@@ -13,7 +13,7 @@ namespace MiniECommerce.Business.Mapping
 
             CreateMap<Order, OrderDetailDto>();
 
-            CreateMap<OrderItemListDto, Order>();
+            CreateMap<Order, OrderItemListDto>();
 
             // CreateMap<OrderStatusDto, Order>().ReverseMap();
         }
