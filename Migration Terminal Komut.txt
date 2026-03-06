@@ -1,18 +1,21 @@
-dotnet ef migrations add <MIGRATION_ADI> --project MiniECommerce.DataAccess --startup-project MiniECommerce.Web
-dotnet ef migrations add <MIGRATION_ADI> --startup-project ../MiniECommerce.
+dotnet ef migrations add <MIGRATION_ADI> --project MiniECommerce.DataAccess --startup-project MiniECommerce.API
+dotnet ef migrations add <MIGRATION_ADI> --startup-project ../MiniECommerce.API
 
 // Migration Oluşturulduktan Sonra Veritabanına Uygulamak İçin
-dotnet ef database update --project MiniECommerce.DataAccess --startup-project MiniECommerce.Web
-dotnet ef database update --startup-project ../MiniECommerce.Web
+dotnet ef database update --project MiniECommerce.DataAccess --startup-project MiniECommerce.API
+dotnet ef database update --startup-project ../MiniECommerce.API
 
 // Remove işlemi - Migration Veritabanına Uygulandıysa (Update-Database yapıldıysa)
-dotnet ef database update <ONCEKI_MIGRATION_ADI> --project MiniECommerce.DataAccess --startup-project MiniECommerce.Web
-dotnet ef migrations remove --project MiniECommerce.DataAccess --startup-	project MiniECommerce.Web
+dotnet ef database update <ONCEKI_MIGRATION_ADI> --project MiniECommerce.DataAccess --startup-project MiniECommerce.API
+dotnet ef migrations remove --project MiniECommerce.DataAccess --startup-	project MiniECommerce.API
 
 // Remove işlemi - Migration Sadece Oluşturulduysa (Henüz Update Yapılmadıysa)
-dotnet ef migrations remove --project MiniECommerce.DataAccess --startup-project MiniECommerce.
-dotnet ef migrations add <MIGRATION_ADI> --project MiniECommerce.DataAccess --startup-project MiniECommerce.Web
+dotnet ef migrations remove --project MiniECommerce.DataAccess --startup-project MiniECommerce.API
+dotnet ef migrations add <MIGRATION_ADI> --project MiniECommerce.DataAccess --startup-project MiniECommerce.API
 
 // Veritabanını silmek için,
-dotnet ef database drop --project MiniECommerce.DataAccess --startup-project MiniECommerce.Web
-dotnet ef database drop --startup-project ../MiniECommerce.Web
+dotnet ef database drop --project MiniECommerce.DataAccess --startup-project MiniECommerce.API
+dotnet ef database drop --startup-project ../MiniECommerce.API
+
+// Tablo verilerini silmek için,
+dotnet ef database update --inline-sql "DELETE FROM Users" --project MiniECommerce.DataAccess --startup-project MiniECommerce.API

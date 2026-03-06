@@ -3,7 +3,7 @@
     public class OrderItemUpdateDto
     {
         public int Id { get; set; }
-        public int ProductId { get; set; }
+        public bool IsActive { get; set; }
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
     }

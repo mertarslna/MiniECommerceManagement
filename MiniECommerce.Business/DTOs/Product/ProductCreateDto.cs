@@ -4,6 +4,8 @@ namespace MiniECommerce.Business.DTOs.Product
 {
     public class ProductCreateDto
     {
+        public bool IsActive { get; set; }
+
         [Required(ErrorMessage = "Ürün adı boş bırakılamaz.")]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Ürün adı 2 ile 50 karakter arasında olmalıdır.")]
         public required string Name { get; set; }
@@ -14,6 +16,5 @@ namespace MiniECommerce.Business.DTOs.Product
         public int Stock { get; set; }
         public int CategoryId { get; set; }
         public string? ImageUrl { get; set; }
-        public bool IsActive { get; set; }
     }
 }

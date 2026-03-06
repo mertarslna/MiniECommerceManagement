@@ -1,98 +1,83 @@
-﻿using MiniECommerce.Business.Interfaces;
+﻿using AutoMapper;
+using MiniECommerce.Business.DTOs.Order;
+using MiniECommerce.Business.Interfaces;
 using MiniECommerce.DataAccess.Repositories.Interfaces;
 using MiniECommerce.Entity.Entities;
 using MiniECommerce.Entity.Enums;
-
 
 namespace MiniECommerce.Business.Concrete
 {
     public class OrderManager : IOrderService
     {
         private readonly IOrderRepository _repository;
+        private readonly IMapper _mapper;
 
-        public OrderManager(IOrderRepository repository)
+        public OrderManager(IOrderRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<Order>> GetAllAsync() => await _repository.GetAllAsync();
-
-        public async Task<Order> GetByIdAsync(int id)
+        public async Task<IEnumerable<OrderListDto>> GetAllAsync()
         {
-            if (id <= 0)
-                throw new ArgumentException("Invalid order ID.");
+            var orders = await _repository.GetAllAsync();
+            return _mapper.Map<IEnumerable<OrderListDto>>(orders);
+        }
 
+        public async Task<IEnumerable<OrderDetailDto>> GetAllWithDetailsAsync()
+        {
+            var orders = await _repository.GetAllWithDetailsAsync();
+            return _mapper.Map<IEnumerable<OrderDetailDto>>(orders);
+        }
+
+        public async Task<OrderListDto> GetByIdAsync(int id)
+        {
             var order = await _repository.GetByIdAsync(id);
             if (order == null)
-                throw new KeyNotFoundException("Order not found.");
+                throw new Exception("Order not found.");
 
-            return order;
+            return _mapper.Map<OrderListDto>(order);
         }
 
-        public async Task<IEnumerable<Order>> GetAllWithDetailsAsync() => await _repository.GetAllWithDetailsAsync();
-
-        public async Task<Order> GetByIdWithDetailsAsync(int id)
+        public async Task<OrderDetailDto> GetByIdWithDetailsAsync(int id)
         {
-            if (id <= 0)
-                throw new ArgumentException("Invalid order ID.");
-
             var order = await _repository.GetByIdWithDetailsAsync(id);
             if (order == null)
-                throw new KeyNotFoundException("Order not found.");
+                throw new Exception("Order not found.");
 
-            return order;
+            return _mapper.Map<OrderDetailDto>(order);
         }
 
-        public async Task AddAsync(Order order)
+        public async Task UpdateAsync(OrderUpdateDto dto)
         {
-            if (order == null)
-                throw new ArgumentNullException(nameof(order), "Order cannot be null.");
+            var existingOrder = await _repository.GetByIdAsync(dto.Id);
+            if (existingOrder == null)
+                throw new Exception("Order not found.");
 
-            await _repository.AddAsync(order);
+            _mapper.Map(dto, existingOrder);
+
+            _repository.Update(existingOrder);
             await _repository.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Order order)
+        public async Task UpdateStatusAsync(int id, OrderStatus status)
         {
+            var order = await _repository.GetByIdAsync(id);
             if (order == null)
-                throw new ArgumentNullException(nameof(order), "Order cannot be null.");
+                throw new Exception("Order not found.");
 
-            var existingOrder = await _repository.GetByIdAsync(order.Id);
-            if (existingOrder == null)
-                throw new KeyNotFoundException("Order not found.");
-
+            order.Status = status;
             _repository.Update(order);
             await _repository.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            if (id <= 0)
-                throw new ArgumentException("Invalid order ID.");
-
             var order = await _repository.GetByIdAsync(id);
             if (order == null)
-                throw new KeyNotFoundException("Order not found.");
+                throw new Exception("Order not found.");
 
             _repository.Delete(order);
-            await _repository.SaveChangesAsync();
-        }
-
-        public async Task UpdateStatusAsync(int id, OrderStatuses status)
-        {
-            if (id <= 0)
-                throw new ArgumentException("Invalid order ID.");
-
-            if (!Enum.IsDefined(typeof(OrderStatuses), status))
-                throw new ArgumentException("Invalid order status value.");
-
-            var order = await _repository.GetByIdAsync(id);
-            if (order == null)
-                throw new KeyNotFoundException("Order not found.");
-
-            order.Status = status;
-
-            _repository.Update(order);
             await _repository.SaveChangesAsync();
         }
     }

@@ -10,8 +10,10 @@ namespace MiniECommerce.Business.Mapping
         public OrderProfile()
         {
             CreateMap<Order, OrderListDto>();
-
+            CreateMap<OrderUpdateDto, Order>();
+            CreateMap<OrderItemUpdateDto, OrderItem>();
             CreateMap<Order, OrderDetailDto>();
+            CreateMap<OrderListDto, OrderUpdateDto>();
 
             // CreateMap<OrderStatusDto, Order>().ReverseMap();
         }

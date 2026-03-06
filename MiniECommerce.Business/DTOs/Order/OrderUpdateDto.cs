@@ -10,11 +10,11 @@ namespace MiniECommerce.Business.DTOs.Order
         [Required(ErrorMessage = "Güncellenecek siparişin kimlik bilgisi (Id) bulunamadı.")]
         public int Id { get; set; }
 
-        public int UserId { get; set; }
+        public DateTime UpdatedDate { get; set; }
 
-        public decimal TotalPrice { get; set; }
+        public bool IsActive { get; set; }
 
-        public OrderStatuses Status { get; set; }
+        public OrderStatus Status { get; set; }
 
         public List<OrderItemUpdateDto> OrderItems { get; set; } = new List<OrderItemUpdateDto>();
     }

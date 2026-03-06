@@ -13,7 +13,7 @@ namespace MiniECommerce.Business.DTOs.Order
         public required string UserName { get; set; }
         public DateTime OrderDate { get; set; }
         public decimal TotalPrice { get; set; }
-        public OrderStatuses Status { get; set; }
+        public OrderStatus Status { get; set; }
         public List<OrderItemListDto> OrderItems { get; set; } = new List<OrderItemListDto>();
     }
 }

@@ -1,9 +1,7 @@
 ﻿@model MiniECommerce.Web.Models.Category.CategoryCreateViewModel
-
 @{
     ViewData["Title"] = "Yeni Kategori Ekle";
 }
-
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -12,29 +10,21 @@
                     <h4 class="mb-0"><i class="bi bi-folder-plus"></i> Yeni Kategori Oluştur</h4>
                 </div>
                 <div class="card-body p-4">
-
                     <form asp-action="Create" method="post">
-
                         <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-
                         <div class="mb-3">
                             <label asp-for="Name" class="form-label fw-bold"></label>
                             <input asp-for="Name" class="form-control" placeholder="Örn: Elektronik, Giyim..." />
                             <span asp-validation-for="Name" class="text-danger small"></span>
                         </div>
-
                         <div class="mb-3">
                             <label asp-for="Description" class="form-label fw-bold"></label>
-                            <textarea asp-for="Description" class="form-control" rows="4" placeholder="Kategori hakkında kısa bir açıklama girin..."></textarea>
+                            <textarea asp-for="Description" class="form-control" rows="4"
+                                      placeholder="Kategori hakkında kısa bir açıklama girin..."></textarea>
                             <span asp-validation-for="Description" class="text-danger small"></span>
                         </div>
 
-                        <div class="form-check form-switch mb-4">
-                            <input asp-for="IsActive" class="form-check-input" type="checkbox" id="isActiveSwitch" checked>
-                            <label class="form-check-label" for="isActiveSwitch">
-                                Bu kategori şu an aktif olsun mu?
-                            </label>
-                        </div>
+                        <input type="hidden" name="IsActive" value="true" />
 
                         <div class="d-flex justify-content-between">
                             <a asp-action="Index" class="btn btn-outline-secondary">
@@ -45,7 +35,6 @@
                             </button>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>

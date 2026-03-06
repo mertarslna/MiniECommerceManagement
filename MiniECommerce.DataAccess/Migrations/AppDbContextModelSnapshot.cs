@@ -43,6 +43,9 @@ namespace MiniECommerce.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
@@ -51,16 +54,42 @@ namespace MiniECommerce.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2026, 3, 4, 9, 14, 49, 484, DateTimeKind.Local).AddTicks(4078),
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActive = true,
-                            Name = "Elektronik"
+                            Name = "Elektronik",
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2026, 3, 4, 9, 14, 49, 484, DateTimeKind.Local).AddTicks(4078),
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActive = true,
-                            Name = "Giyim"
+                            Name = "Giyim",
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            Name = "Ev & Yaşam",
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            Name = "Kitap & Hobi",
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            Name = "Spor & Outdoor",
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -72,8 +101,11 @@ namespace MiniECommerce.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("OrderDate")
+                    b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("OrderNumber")
                         .IsRequired()
@@ -82,9 +114,8 @@ namespace MiniECommerce.DataAccess.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TotalPrice")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -94,6 +125,58 @@ namespace MiniECommerce.DataAccess.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            OrderNumber = "ORD-001",
+                            Status = 4,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            OrderNumber = "ORD-002",
+                            Status = 1,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            OrderNumber = "ORD-003",
+                            Status = 3,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            OrderNumber = "ORD-004",
+                            Status = 5,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            OrderNumber = "ORD-005",
+                            Status = 2,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2
+                        });
                 });
 
             modelBuilder.Entity("MiniECommerce.Entity.Entities.OrderItem", b =>
@@ -103,6 +186,12 @@ namespace MiniECommerce.DataAccess.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
@@ -117,6 +206,9 @@ namespace MiniECommerce.DataAccess.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
@@ -124,6 +216,63 @@ namespace MiniECommerce.DataAccess.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("OrderItems");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            OrderId = 1,
+                            ProductId = 1,
+                            Quantity = 1,
+                            UnitPrice = 35000m,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            OrderId = 1,
+                            ProductId = 2,
+                            Quantity = 1,
+                            UnitPrice = 300m,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            OrderId = 2,
+                            ProductId = 3,
+                            Quantity = 1,
+                            UnitPrice = 4500m,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            OrderId = 3,
+                            ProductId = 2,
+                            Quantity = 1,
+                            UnitPrice = 300m,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            OrderId = 5,
+                            ProductId = 5,
+                            Quantity = 1,
+                            UnitPrice = 600m,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("MiniECommerce.Entity.Entities.Product", b =>
@@ -160,6 +309,9 @@ namespace MiniECommerce.DataAccess.Migrations
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
@@ -171,21 +323,56 @@ namespace MiniECommerce.DataAccess.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            CreatedDate = new DateTime(2026, 3, 4, 9, 14, 49, 484, DateTimeKind.Local).AddTicks(4078),
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActive = true,
                             Name = "Oyuncu Laptop",
                             Price = 35000m,
-                            Stock = 15
+                            Stock = 15,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 2,
-                            CreatedDate = new DateTime(2026, 3, 4, 9, 14, 49, 484, DateTimeKind.Local).AddTicks(4078),
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsActive = true,
                             Name = "Siyah Tişört",
                             Price = 300m,
-                            Stock = 100
+                            Stock = 100,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 3,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            Name = "Kahve Makinesi",
+                            Price = 4500m,
+                            Stock = 20,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 4,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            Name = "Dünya Tarihi Kitabı",
+                            Price = 150m,
+                            Stock = 50,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 5,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsActive = true,
+                            Name = "Yoga Matı",
+                            Price = 600m,
+                            Stock = 30,
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -197,9 +384,15 @@ namespace MiniECommerce.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -209,9 +402,11 @@ namespace MiniECommerce.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserType")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -221,18 +416,57 @@ namespace MiniECommerce.DataAccess.Migrations
                         new
                         {
                             Id = 1,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "mert@admin.com",
+                            IsActive = true,
                             Name = "Mert Arslan",
-                            Password = "123",
-                            UserType = "Admin"
+                            Password = "056B51B6C969185BCF98534F9ED29A2F:703828C8E6074862C3442ADB52F344D85745EB84C5BCF3844EC94F8DAC607B0B",
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserType = 1
                         },
                         new
                         {
                             Id = 2,
-                            Email = "musteri@test.com",
-                            Name = "Standart Müşteri",
-                            Password = "123",
-                            UserType = "Customer"
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "ahmet@test.com",
+                            IsActive = true,
+                            Name = "Ahmet Yılmaz",
+                            Password = "A2C6277F6E175DBD274B30FCC6850BC9:A533BB0AB835AEA393AC6BB2145B811C8042B9CD16D2508038D57A1E4722F918",
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserType = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "ayse@test.com",
+                            IsActive = true,
+                            Name = "Ayşe Demir",
+                            Password = "014FFDD5FD8A01F31A0B10B330D13A09:F076DB6AAB0C1D208D6016FE48619EEDE453E8C11AF5A2399166263A4CE62642",
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserType = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "mehmet@test.com",
+                            IsActive = true,
+                            Name = "Mehmet Can",
+                            Password = "216A2AA79AD9F041DDD6F1ADAE0AD0DC:FA2C5C6943D84033BE67DF98E8E1BF848747E77ABC7EF1C4002DCBD5A10F34BB",
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserType = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "zeynep@test.com",
+                            IsActive = true,
+                            Name = "Zeynep Kaya",
+                            Password = "40517A96B1D67CF627417E46F922B58D:78874F32991533EB6DB25B15F2841D8E2CACF3547D75E3112F63D982301F6675",
+                            UpdatedDate = new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserType = 2
                         });
                 });
 
@@ -241,7 +475,7 @@ namespace MiniECommerce.DataAccess.Migrations
                     b.HasOne("MiniECommerce.Entity.Entities.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("User");
@@ -258,7 +492,7 @@ namespace MiniECommerce.DataAccess.Migrations
                     b.HasOne("MiniECommerce.Entity.Entities.Product", "Product")
                         .WithMany("OrderItems")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Order");
@@ -271,7 +505,7 @@ namespace MiniECommerce.DataAccess.Migrations
                     b.HasOne("MiniECommerce.Entity.Entities.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");

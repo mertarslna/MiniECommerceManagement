@@ -1,14 +1,13 @@
-﻿using MiniECommerce.Entity.Entities;
+﻿using MiniECommerce.Business.DTOs.Product;
 
 namespace MiniECommerce.Business.Interfaces
 {
     public interface IProductService
     {
-        Task<IEnumerable<Product>> GetAllAsync();
-        Task<IEnumerable<Product>> GetAllWithCategoriesAsync();
-        Task<Product> GetByIdAsync(int id);
-        Task AddAsync(Product product);
-        Task UpdateAsync(Product product);
+        Task<IEnumerable<ProductListDto>> GetAllAsync();
+        Task<ProductListDto> GetByIdAsync(int id);
+        Task AddAsync(ProductCreateDto dto);
+        Task UpdateAsync(ProductUpdateDto dto);
         Task DeleteAsync(int id);
         Task<bool> ToggleActivationAsync(int id);
     }

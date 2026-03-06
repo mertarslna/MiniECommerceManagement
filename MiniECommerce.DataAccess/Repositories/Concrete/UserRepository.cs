@@ -10,5 +10,11 @@ namespace MiniECommerce.DataAccess.Repositories.Concrete
         public UserRepository(AppDbContext context) : base(context)
         {
         }
+        // MiniECommerce.DataAccess/Repositories/UserRepository.cs
+        public async Task<User?> GetByEmailAsync(string email)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == email);
+        }
     }
 }

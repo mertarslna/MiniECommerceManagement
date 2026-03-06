@@ -6,10 +6,8 @@ namespace MiniECommerce.Entity.Entities
     {
         public required string OrderNumber { get; set; }
         public int UserId { get; set; }
-        public virtual required User User { get; set; }
-        public DateTime OrderDate { get; set; }
-        public decimal TotalPrice { get; set; }
-        public OrderStatuses Status { get; set; }
+        public OrderStatus Status { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public virtual User User { get; set; }
     }
 }

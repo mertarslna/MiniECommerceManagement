@@ -11,10 +11,8 @@
     <link rel="stylesheet" href="~/MiniECommerce.Web.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <!-- Sidebar Overlay (mobile) -->
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
 
-    <!-- Sidebar -->
     <aside class="admin-sidebar" id="adminSidebar">
         <div class="sidebar-brand">
             <div class="brand-icon">
@@ -56,18 +54,10 @@
                         <span>Siparişler</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Swagger" ? "active" : "")"
-                       asp-controller="swagger" asp-action="Index">
-                        <i class="bi bi-code-slash"></i>
-                        <span>Swagger</span>
-                    </a>
-                </li>
             </ul>
         </nav>
     </aside>
 
-    <!-- Header -->
     <header class="admin-header">
         <div class="header-left">
             <button class="sidebar-toggle" onclick="toggleSidebar()">
@@ -77,12 +67,10 @@
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="admin-content">
         @RenderBody()
     </main>
 
-    <!-- Footer -->
     <footer class="admin-footer">
         &copy; 2026 MiniECommerce &mdash; Yönetim Paneli
     </footer>

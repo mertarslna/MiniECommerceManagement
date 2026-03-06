@@ -15,7 +15,5 @@ namespace MiniECommerce.DataAccess.Repositories.Concrete
             return await _context.Categories.Where(c => c.IsActive).ToListAsync();
         }
         public async Task<bool> AnyAsync() => await _context.Categories.AnyAsync();
-
-
     }
 }

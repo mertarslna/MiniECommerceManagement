@@ -1,5 +1,5 @@
 using AutoMapper;
-using MiniECommerce.Business.DTOs.User;
+using MiniECommerce.Business.DTOs;
 using MiniECommerce.Entity.Entities;
 
 namespace MiniECommerce.Business.Mapping
@@ -8,7 +8,6 @@ namespace MiniECommerce.Business.Mapping
     {
         public UserProfile()
         {
-            CreateMap<UserLoginDto, User>().ReverseMap();
         }
     }
 

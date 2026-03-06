@@ -1,13 +1,12 @@
-﻿using MiniECommerce.Entity.Entities;
+﻿using MiniECommerce.Business.DTOs.OrderItem;
 
 namespace MiniECommerce.Business.Interfaces
 {
     public interface IOrderItemService
     {
-        Task<IEnumerable<OrderItem>> GetAllAsync();
-        Task<OrderItem> GetByIdAsync(int id);
-        Task AddAsync(OrderItem orderitem);
-        Task UpdateAsync(OrderItem orderitem);
+        Task<IEnumerable<OrderItemListDto>> GetAllAsync();
+        Task<OrderItemListDto> GetByIdAsync(int id);
+        Task UpdateAsync(OrderItemUpdateDto dto);
         Task DeleteAsync(int id);
     }
 }

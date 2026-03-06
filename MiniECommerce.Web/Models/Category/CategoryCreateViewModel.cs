@@ -12,8 +12,5 @@ namespace MiniECommerce.Web.Models.Category
         [MaxLength(250, ErrorMessage = "Açıklama alanı en fazla 250 karakter olabilir.")]
         [Display(Name = "Açıklama")]
         public string? Description { get; set; }
-
-        [Display(Name = "Aktif mi?")]
-        public bool IsActive { get; set; } = true;
     }
 }

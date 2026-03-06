@@ -3,13 +3,20 @@ using MiniECommerce.Business.DTOs.Category;
 using MiniECommerce.Business.Interfaces;
 using MiniECommerce.DataAccess.Repositories.Interfaces;
 using MiniECommerce.Entity.Entities;
+using MiniECommerce.Entity.Enums;
 
 namespace MiniECommerce.Business.Concrete
 {
-    public class CategoryManager(ICategoryRepository repository, IMapper mapper) : ICategoryService
+    public class CategoryManager : ICategoryService
     {
-        private readonly ICategoryRepository _repository = repository;
-        private readonly IMapper _mapper = mapper;
+        private readonly ICategoryRepository _repository;
+        private readonly IMapper _mapper;
+
+        public CategoryManager(ICategoryRepository repository, IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
 
         public async Task<IEnumerable<CategoryListDto>> GetAllAsync()
         {
@@ -37,6 +44,7 @@ namespace MiniECommerce.Business.Concrete
             var category = _mapper.Map<Category>(dto);
             category.IsActive = true;
             category.CreatedDate = DateTime.Now;
+            category.UpdatedDate = DateTime.Now;
 
             await _repository.AddAsync(category);
             await _repository.SaveChangesAsync();
@@ -45,9 +53,12 @@ namespace MiniECommerce.Business.Concrete
         public async Task UpdateAsync(CategoryUpdateDto dto)
         {
             var existingCategory = await _repository.GetByIdAsync(dto.Id);
-            if (existingCategory is null) throw new Exception("Category not found.");
+            if (existingCategory == null)
+                throw new Exception("Category not found.");
 
             _mapper.Map(dto, existingCategory);
+
+            existingCategory.UpdatedDate = DateTime.Now;
 
             _repository.Update(existingCategory);
             await _repository.SaveChangesAsync();
@@ -56,11 +67,11 @@ namespace MiniECommerce.Business.Concrete
         public async Task DeleteAsync(int id)
         {
             var category = await _repository.GetByIdAsync(id);
-            if (category is not null)
-            {
-                _repository.Delete(category);
-                await _repository.SaveChangesAsync();
-            }
+            if (category == null)
+                throw new Exception("Category not found.");
+
+            _repository.Delete(category);
+            await _repository.SaveChangesAsync();
         }
 
         public async Task<bool> ToggleActivationAsync(int id)

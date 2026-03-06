@@ -1,4 +1,6 @@
-﻿using MiniECommerce.Business.Interfaces;
+﻿using AutoMapper;
+using MiniECommerce.Business.DTOs.Product;
+using MiniECommerce.Business.Interfaces;
 using MiniECommerce.DataAccess.Repositories.Interfaces;
 using MiniECommerce.Entity.Entities;
 
@@ -7,63 +9,65 @@ namespace MiniECommerce.Business.Concrete
     public class ProductManager : IProductService
     {
         private readonly IProductRepository _repository;
+        private readonly IMapper _mapper;
 
-        public ProductManager(IProductRepository repository)
+        public ProductManager(IProductRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
-        public async Task<IEnumerable<Product>> GetAllAsync() => await _repository.GetAllAsync();
-        public async Task<IEnumerable<Product>> GetAllWithCategoriesAsync() => await _repository.GetAllWithCategoriesAsync();
-        public async Task<Product> GetByIdAsync(int id)
-        {
-            if (id <= 0)
-                throw new ArgumentException("Invalid product ID.");
 
-            return await _repository.GetByIdAsync(id);
-        }
-        public async Task AddAsync(Product product)
+        public async Task AddAsync(ProductCreateDto dto)
         {
-            if (product == null)
-                throw new ArgumentNullException(nameof(product));
-            if (product.Price < 0)
-                throw new ArgumentException("Product price cant less than zero");
+            var product = _mapper.Map<Product>(dto);
             await _repository.AddAsync(product);
-            await _repository.SaveChangesAsync();
         }
-        public async Task UpdateAsync(Product product)
-        {
-            if (product == null)
-                throw new ArgumentNullException(nameof(product));
 
-            _repository.Update(product);
-            await _repository.SaveChangesAsync();
-        }
         public async Task DeleteAsync(int id)
         {
-            if (id <= 0)
-                throw new ArgumentException("Invalid product ID.");
-
             var product = await _repository.GetByIdAsync(id);
-            if (product == null)
-                throw new ArgumentException("Product not found.");
-
+            if (product != null)
+                throw new KeyNotFoundException("Product not found.");
             _repository.Delete(product);
             await _repository.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<ProductListDto>> GetAllAsync()
+        {
+            var products = await _repository.GetAllAsync();
+            return _mapper.Map<IEnumerable<ProductListDto>>(products);
+        }
+
+        public async Task<ProductListDto> GetByIdAsync(int id)
+        {
+            var product = await _repository.GetByIdAsync(id);
+            if (product == null)
+                return null;
+
+            return _mapper.Map<ProductListDto>(product);
+        }
+
         public async Task<bool> ToggleActivationAsync(int id)
         {
-            if (id <= 0)
-                throw new ArgumentException("Invalid product ID.");
-
             var product = await _repository.GetByIdAsync(id);
-            if (product != null)
-            {
-                product.IsActive = !product.IsActive;
-                _repository.Update(product);
-                await _repository.SaveChangesAsync();
-                return true;
-            }
-            return false;
+            if (product == null)
+                throw new KeyNotFoundException("Product not found.");
+
+            product.IsActive = !product.IsActive;
+            _repository.Update(product);
+
+            return product.IsActive;
+        }
+
+        public async Task UpdateAsync(ProductUpdateDto dto)
+        {
+            var existingProduct = await _repository.GetByIdAsync(dto.Id);
+
+            if (existingProduct == null)
+                throw new KeyNotFoundException("Product not found.");
+
+            _mapper.Map(dto, existingProduct);
+            _repository.Update(existingProduct);
         }
     }
 }

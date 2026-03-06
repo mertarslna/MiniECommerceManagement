@@ -1,11 +1,9 @@
 ﻿@model List<MiniECommerce.Web.Models.Category.CategoryListViewModel>
-
 <div class="container mt-4">
     <div class="d-flex justify-content-between mb-3">
         <h2>Kategori Listesi</h2>
         <a asp-action="Create" class="btn btn-primary">Yeni Kategori Ekle</a>
     </div>
-
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -32,15 +30,14 @@
                     <td>@item.CreatedDate.ToShortDateString()</td>
                     <td>
                         <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Düzenle</a>
-
                         <form asp-action="ToggleStatus" method="post" style="display:inline-block;">
                             <input type="hidden" name="id" value="@item.Id" />
-                            <button type="submit" class="btn @(item.IsActive ? "btn-danger" : "btn-success") btn-sm">
+                            <button type="submit" class="btn @(item.IsActive ? "btn-secondary" : "btn-success") btn-sm">
                                 @(item.IsActive ? "Pasif Yap" : "Aktif Yap")
                             </button>
                         </form>
-
-                        <form asp-action="Delete" method="post" style="display:inline-block;" onsubmit="return confirm('Silmek istediğinize emin misiniz?');">
+                        <form asp-action="Delete" method="post" style="display:inline-block;"
+                              onsubmit="return confirm('Silmek istediğinize emin misiniz?');">
                             <input type="hidden" name="id" value="@item.Id" />
                             <button type="submit" class="btn btn-danger btn-sm">Sil</button>
                         </form>
