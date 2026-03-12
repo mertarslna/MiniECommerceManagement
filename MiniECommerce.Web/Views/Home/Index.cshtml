@@ -1,4 +1,177 @@
-﻿@page
-@model MiniECommerce.Web.Views.Home.IndexModel
 @{
+    bool isAuthenticated = Context.Request.Cookies.ContainsKey("JwtToken") ||
+                           Context.Response.Headers["Set-Cookie"].ToString().Contains("JwtToken");
+
+    Layout = isAuthenticated ? "_Layout" : "_AuthLayout";
+    ViewData["Title"] = isAuthenticated ? "Yönetim Paneli" : "Hoş Geldiniz";
+}
+
+@if (isAuthenticated)
+{
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">Mağaza Özeti</h1>
+            <p class="page-subtitle">İşletmenizin performansına genel bir bakış.</p>
+        </div>
+        <div class="d-flex gap-2">
+            <button class="btn-premium btn-outline-p">
+                <i class="bi bi-download"></i> Rapor İndir
+            </button>
+            <a asp-controller="Product" asp-action="Index" class="btn-premium btn-primary-p text-decoration-none">
+                <i class="bi bi-plus-lg"></i> Yeni Ürün
+            </a>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="glass-card stat-card">
+            <div class="stat-icon" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">
+                <i class="bi bi-wallet2"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Tahmini Satış</h3>
+                <div class="value">₺@((ViewBag.OrderCount ?? 0) * 1250).00</div>
+            </div>
+        </div>
+
+        <div class="glass-card stat-card">
+            <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+                <i class="bi bi-cart3"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Siparişler</h3>
+                <div class="value">@ViewBag.OrderCount</div>
+            </div>
+        </div>
+
+        <div class="glass-card stat-card">
+            <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+                <i class="bi bi-folder2-open"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Kategoriler</h3>
+                <div class="value">@ViewBag.CategoryCount</div>
+            </div>
+        </div>
+
+        <div class="glass-card stat-card">
+            <div class="stat-icon" style="background: rgba(14, 165, 233, 0.1); color: #0ea5e9;">
+                <i class="bi bi-box-seam"></i>
+            </div>
+            <div class="stat-info">
+                <h3>Ürün Sayısı</h3>
+                <div class="value">@ViewBag.ProductCount</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="glass-card h-100">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="fw-bold" style="font-size: 1.1rem;">Son İşlemler</h3>
+                    <a href="#" class="text-primary text-decoration-none" style="font-size: 0.85rem;">Tümünü Gör</a>
+                </div>
+                <div class="table-container">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>Ürün</th>
+                                <th>Müşteri</th>
+                                <th>Durum</th>
+                                <th>Tutar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="bg-secondary p-2 rounded" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-laptop text-white"></i>
+                                        </div>
+                                        <span>MacBook Pro M3</span>
+                                    </div>
+                                </td>
+                                <td>Ahmet Yılmaz</td>
+                                <td><span class="badge-p badge-success">Tamamlandı</span></td>
+                                <td>₺89.999</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="bg-secondary p-2 rounded" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-phone text-white"></i>
+                                        </div>
+                                        <span>iPhone 15 Pro</span>
+                                    </div>
+                                </td>
+                                <td>Zeynep Kaya</td>
+                                <td><span class="badge-p badge-warning">Hazırlanıyor</span></td>
+                                <td>₺74.999</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="bg-secondary p-2 rounded" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="bi bi-headphones text-white"></i>
+                                        </div>
+                                        <span>AirPods Max</span>
+                                    </div>
+                                </td>
+                                <td>Mehmet Demir</td>
+                                <td><span class="badge-p badge-danger">İptal Edildi</span></td>
+                                <td>₺22.499</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="glass-card h-100">
+                <h3 class="fw-bold mb-4" style="font-size: 1.1rem;">Hızlı İşlemler</h3>
+                <div class="d-grid gap-3">
+                    <a asp-controller="Category" asp-action="Index" class="btn-premium btn-outline-p w-100 justify-content-start">
+                        <i class="bi bi-tags"></i> Kategori Yönetimi
+                    </a>
+                    <a asp-controller="Product" asp-action="Index" class="btn-premium btn-outline-p w-100 justify-content-start">
+                        <i class="bi bi-box-seam"></i> Envanter Kontrolü
+                    </a>
+                    <a asp-controller="Order" asp-action="Index" class="btn-premium btn-outline-p w-100 justify-content-start">
+                        <i class="bi bi-truck"></i> Sevkiyat Takibi
+                    </a>
+                </div>
+
+                <div class="mt-5 p-4 rounded-4 bg-primary bg-opacity-10 border border-primary border-opacity-20 text-center">
+                    <i class="bi bi-lightning-charge-fill text-primary" style="font-size: 2rem;"></i>
+                    <h4 class="mt-2 fw-bold">Premium Destek</h4>
+                    <p class="text-muted small">İhtiyacınız olduğunda yardıma hazırız.</p>
+                    <button class="btn btn-sm btn-primary w-100 mt-2">Bize Ulaşın</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    @* Auth UI will be handled by _AuthLayout or inlined here if preferred *@
+    <div class="d-flex flex-column align-items-center justify-content-center text-center py-5">
+        <div class="brand-logo mb-4" style="width: 80px; height: 80px; font-size: 2.5rem;">
+            <i class="bi bi-rocket-takeoff-fill"></i>
+        </div>
+        <h1 class="display-4 fw-bold mb-3">MiniECommerce <span class="text-primary">Premium</span></h1>
+        <p class="lead text-muted mb-5" style="max-width: 600px;">
+            Yüksek performanslı, modern ve güvenli e-ticaret yönetim paneline hoş geldiniz. 
+            Devam etmek için lütfen giriş yapın.
+        </p>
+
+        <div class="d-flex gap-3">
+            <a asp-controller="Auth" asp-action="Login" class="btn-premium btn-primary-p py-3 px-5 fs-5">
+                Giriş Yap
+            </a>
+            <a asp-controller="Auth" asp-action="Register" class="btn-premium btn-outline-p py-3 px-5 fs-5">
+                Kayıt Ol
+            </a>
+        </div>
+    </div>
 }

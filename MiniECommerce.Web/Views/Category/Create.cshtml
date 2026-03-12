@@ -1,42 +1,46 @@
-﻿@model MiniECommerce.Web.Models.Category.CategoryCreateViewModel
+@model MiniECommerce.Web.Models.CategoryCreateViewModel
+
 @{
-    ViewData["Title"] = "Yeni Kategori Ekle";
+    ViewData["Title"] = "Yeni Kategori";
 }
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card shadow-sm border-0">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0"><i class="bi bi-folder-plus"></i> Yeni Kategori Oluştur</h4>
-                </div>
-                <div class="card-body p-4">
-                    <form asp-action="Create" method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-                        <div class="mb-3">
-                            <label asp-for="Name" class="form-label fw-bold"></label>
-                            <input asp-for="Name" class="form-control" placeholder="Örn: Elektronik, Giyim..." />
-                            <span asp-validation-for="Name" class="text-danger small"></span>
-                        </div>
-                        <div class="mb-3">
-                            <label asp-for="Description" class="form-label fw-bold"></label>
-                            <textarea asp-for="Description" class="form-control" rows="4"
-                                      placeholder="Kategori hakkında kısa bir açıklama girin..."></textarea>
-                            <span asp-validation-for="Description" class="text-danger small"></span>
-                        </div>
 
-                        <input type="hidden" name="IsActive" value="true" />
+<div class="page-header d-flex justify-content-between align-items-center">
+    <div>
+        <h1 class="page-title">Yeni Kategori</h1>
+        <p class="page-subtitle">Sisteme yeni bir ürün grubu ekleyin.</p>
+    </div>
+    <a asp-action="Index" class="btn-premium btn-outline-p text-decoration-none">
+        <i class="bi bi-arrow-left"></i> Listeye Dön
+    </a>
+</div>
 
-                        <div class="d-flex justify-content-between">
-                            <a asp-action="Index" class="btn btn-outline-secondary">
-                                <i class="bi bi-arrow-left"></i> Listeye Dön
-                            </a>
-                            <button type="submit" class="btn btn-success px-4">
-                                <i class="bi bi-save"></i> Kaydet
-                            </button>
-                        </div>
-                    </form>
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="glass-card">
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="badge-p badge-danger mb-4 d-block" style="text-align: left; padding: 1rem;"></div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="form-label">Kategori Adı</label>
+                    <input asp-for="Name" class="form-input" placeholder="Örn: Akıllı Telefonlar" />
+                    <span asp-validation-for="Name" class="text-danger small mt-1 d-block"></span>
                 </div>
-            </div>
+
+                <div class="form-group mt-4">
+                    <label asp-for="Description" class="form-label">Açıklama</label>
+                    <textarea asp-for="Description" class="form-input" rows="4" placeholder="Bu kategori hakkında kısa bir bilgi girin..."></textarea>
+                    <span asp-validation-for="Description" class="text-danger small mt-1 d-block"></span>
+                </div>
+
+                <div class="mt-5 pt-3 border-top border-secondary border-opacity-20 d-flex gap-3">
+                    <button type="submit" class="btn-premium btn-primary-p flex-grow-1 justify-content-center">
+                        <i class="bi bi-check-lg"></i> Kategoriyi Kaydet
+                    </button>
+                    <button type="reset" class="btn-premium btn-outline-p">
+                        Temizle
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

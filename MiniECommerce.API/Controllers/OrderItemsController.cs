@@ -11,12 +11,10 @@ namespace MiniECommerce.API.Controllers
     public class OrderItemsController : ControllerBase
     {
         private readonly IOrderItemService _orderItemService;
-        private readonly IMapper _mapper;
 
-        public OrderItemsController(IOrderItemService orderItemService, IMapper mapper)
+        public OrderItemsController(IOrderItemService orderItemService)
         {
             _orderItemService = orderItemService;
-            _mapper = mapper;
         }
 
         // GET: api/OrderItems
@@ -33,17 +31,17 @@ namespace MiniECommerce.API.Controllers
         {
             var item = await _orderItemService.GetByIdAsync(id);
             if (item == null)
-                return NotFound($"{id} ID'li sipariş kalemi bulunamadı.");
+                return NotFound($"Order item with ID {id} not found.");
 
             return Ok(item);
         }
 
         // PUT: api/OrderItems
-        [HttpPut]
+        [HttpPut("{id}")]
         [Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> Update([FromBody] OrderItemUpdateDto dto)
+        public async Task<IActionResult> Update(OrderItemUpdateDto updateDto)
         {
-            await _orderItemService.UpdateAsync(dto);
+            await _orderItemService.UpdateAsync(updateDto);
             return Ok();
         }
 
@@ -52,12 +50,12 @@ namespace MiniECommerce.API.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int id)
         {
-            var item = await _orderItemService.GetByIdAsync(id);
-            if (item == null)
-                return NotFound("Silinmek istenen kayıt bulunamadı.");
+            var orderItem = await _orderItemService.GetByIdAsync(id);
+            if (orderItem == null)
+                return NotFound($"No order item found with ID {id} to delete.");
 
             await _orderItemService.DeleteAsync(id);
-            return Ok(new { Message = "Sipariş kalemi başarıyla silindi." });
+            return Ok(new { Message = "Order item successfully deleted." });
         }
     }
 }

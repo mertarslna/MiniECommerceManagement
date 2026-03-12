@@ -1,0 +1,45 @@
+@model MiniECommerce.Web.Models.CategoryUpdateViewModel
+
+@{
+    ViewData["Title"] = "Kategori Düzenle";
+}
+
+<div class="page-header d-flex justify-content-between align-items-center">
+    <div>
+        <h1 class="page-title">Kategoriyi Düzenle</h1>
+        <p class="page-subtitle">Mevcut kategori bilgilerini güncelleyin.</p>
+    </div>
+    <a asp-action="Index" class="btn-premium btn-outline-p text-decoration-none">
+        <i class="bi bi-arrow-left"></i> Vazgeç
+    </a>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="glass-card">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+                
+                <div asp-validation-summary="ModelOnly" class="badge-p badge-danger mb-4 d-block" style="text-align: left; padding: 1rem;"></div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="form-label">Kategori Adı</label>
+                    <input asp-for="Name" class="form-input" placeholder="Kategori adı..." />
+                    <span asp-validation-for="Name" class="text-danger small mt-1 d-block"></span>
+                </div>
+
+                <div class="form-group mt-4">
+                    <label asp-for="Description" class="form-label">Açıklama</label>
+                    <textarea asp-for="Description" class="form-input" rows="4" placeholder="Açıklama..."></textarea>
+                    <span asp-validation-for="Description" class="text-danger small mt-1 d-block"></span>
+                </div>
+
+                <div class="mt-5 pt-3 border-top border-secondary border-opacity-20 d-flex gap-3">
+                    <button type="submit" class="btn-premium btn-primary-p flex-grow-1 justify-content-center">
+                        <i class="bi bi-arrow-repeat"></i> Değişiklikleri Kaydet
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

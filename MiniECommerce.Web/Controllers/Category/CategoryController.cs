@@ -1,81 +1,92 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MiniECommerce.Web.Models.Category;
+using Microsoft.AspNetCore.Mvc;
+using MiniECommerce.Web.Models;
 
-public class CategoryController : Controller
+namespace MiniECommerce.Web.Controllers.Category
 {
-    private readonly IHttpClientFactory _httpClientFactory;
-
-    public CategoryController(IHttpClientFactory httpClientFactory)
+    public class CategoryController : BaseController
     {
-        _httpClientFactory = httpClientFactory;
-    }
-    private HttpClient CreateClient() => _httpClientFactory.CreateClient("ApiClient");
-
-    public async Task<IActionResult> Index()
-    {
-        var client = CreateClient();
-        var values = await client.GetFromJsonAsync<List<CategoryListViewModel>>("api/categories");
-        return View(values ?? []);
-    }
-
-    [HttpGet]
-    public IActionResult Create()
-    {
-        return View(new CategoryCreateViewModel { Name = string.Empty });
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Create(CategoryCreateViewModel model)
-    {
-        var client = CreateClient();
-        var response = await client.PostAsJsonAsync("api/categories", model);
-        if (response.IsSuccessStatusCode) return RedirectToAction("Index");
-        return View(model);
-    }
-
-    [HttpGet]
-    public async Task<IActionResult> Update(int id)
-    {
-        var client = CreateClient();
-
-        var value = await client.GetFromJsonAsync<CategoryUpdateViewModel>($"api/categories/{id}");
-        return View(value);
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Update(CategoryUpdateViewModel model)
-    {
-        var client = CreateClient();
-        var response = await client.PutAsJsonAsync("api/categories", model);
-        if (response.IsSuccessStatusCode) return RedirectToAction("Index");
-        return View(model);
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Delete(int id)
-    {
-        var client = CreateClient();
-
-        var response = await client.DeleteAsync($"api/categories/{id}");
-
-        if (response.IsSuccessStatusCode)
+        public CategoryController(IHttpClientFactory httpClientFactory) : base(httpClientFactory)
         {
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var client = GetHttpClient();
+            var response = await client.GetAsync("categories");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadFromJsonAsync<List<CategoryListViewModel>>();
+                return View(result);
+            }
+            return View(new List<CategoryListViewModel>());
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(CategoryCreateViewModel category)
+        {
+            if (!ModelState.IsValid)
+                return View(category);
+
+            var client = GetHttpClient();
+            var response = await client.PostAsJsonAsync("categories", category);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            
+            ModelState.AddModelError("", "Kategori oluşturulurken bir hata oluştu.");
+            return View(category);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var client = GetHttpClient();
+            var response = await client.GetAsync($"categories/{id}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var result = await response.Content.ReadFromJsonAsync<CategoryUpdateViewModel>();
+                return View(result);
+            }
             return RedirectToAction("Index");
         }
 
-        return RedirectToAction("Index");
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> ToggleStatus(int id)
-    {
-        var client = CreateClient();
-        var category = await client.GetFromJsonAsync<CategoryUpdateViewModel>($"api/categories/{id}");
-        if (category != null)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(CategoryUpdateViewModel category)
         {
-            category.IsActive = !category.IsActive;
-            await client.PutAsJsonAsync("api/categories", category);
+            if (!ModelState.IsValid)
+                return View(category);
+
+            var client = GetHttpClient();
+            var response = await client.PutAsJsonAsync($"categories/{category.Id}", category);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Kategori güncellenirken bir hata oluştu.");
+            return View(category);
         }
-        return RedirectToAction("Index");
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var client = GetHttpClient();
+            var response = await client.DeleteAsync($"categories/{id}");
+            return RedirectToAction("Index");
+        }
     }
 }

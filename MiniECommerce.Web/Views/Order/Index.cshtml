@@ -1,0 +1,85 @@
+@model List<MiniECommerce.Web.Models.OrderListViewModel>
+
+@{
+    ViewData["Title"] = "Siparişler";
+}
+
+<div class="page-header d-flex justify-content-between align-items-center">
+    <div>
+        <h1 class="page-title">Sipariş Yönetimi</h1>
+        <p class="page-subtitle">Mağazanızdan gelen tüm ürün siparişlerini takip edin.</p>
+    </div>
+</div>
+
+<div class="glass-card">
+    @if (Model == null || Model.Count == 0)
+    {
+        <div class="text-center py-5">
+            <div class="mb-3">
+                <i class="bi bi-cart-x text-muted" style="font-size: 3rem;"></i>
+            </div>
+            <h3 class="fw-bold">Sipariş Bulunamadı</h3>
+            <p class="text-muted">Henüz hiç sipariş verilmemiş veya veriler çekilemedi.</p>
+        </div>
+    }
+    else
+    {
+        <div class="table-container">
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th style="width: 150px;">Sipariş No</th>
+                        <th>Müşteri</th>
+                        <th>Tarih</th>
+                        <th>Durum</th>
+                        <th class="text-end">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <span class="fw-bold text-primary">#@item.OrderNumber</span>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="bg-secondary bg-opacity-10 p-2 rounded-circle text-muted" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">
+                                        <i class="bi bi-person"></i>
+                                    </div>
+                                    <span>@item.UserName</span>
+                                </div>
+                            </td>
+                            <td class="text-muted small">
+                                @item.CreatedDate.ToString("dd.MM.yyyy HH:mm")
+                            </td>
+                            <td>
+                                @if (item.IsActive)
+                                {
+                                    <span class="badge-p badge-success">Aktif</span>
+                                }
+                                else
+                                {
+                                    <span class="badge-p badge-warning">Tamamlandı</span>
+                                }
+                            </td>
+                            <td class="text-end">
+                                <div class="d-flex justify-content-end gap-2">
+                                    <a asp-controller="Order" asp-action="Details" asp-route-id="@item.Id" 
+                                       class="btn-premium btn-outline-p btn-sm" title="Detaylar">
+                                        <i class="bi bi-eye text-primary"></i>
+                                    </a>
+                                    <form asp-controller="Order" asp-action="Delete" asp-route-id="@item.Id" method="post" onsubmit="return confirm('Bu siparişi silmek istediğinize emin misiniz?');" style="display:inline;">
+                                        <button type="submit" class="btn-premium btn-outline-p btn-sm" title="İptal Et">
+                                            <i class="bi bi-x-circle text-danger"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

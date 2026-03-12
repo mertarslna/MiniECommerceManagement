@@ -12,5 +12,6 @@ namespace MiniECommerce.Business.Interfaces
         Task UpdateAsync(OrderUpdateDto dto);
         Task DeleteAsync(int id);
         Task UpdateStatusAsync(int id, OrderStatus status);
+        Task<bool> ToggleActivationAsync(int id);
     }
 }

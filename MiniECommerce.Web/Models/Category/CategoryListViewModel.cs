@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace MiniECommerce.Web.Models.Category
+namespace MiniECommerce.Web.Models
 {
     public class CategoryListViewModel
     {

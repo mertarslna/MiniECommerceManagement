@@ -17,17 +17,17 @@ namespace MiniECommerce.API.Controllers
 
         // POST: api/Auth/register
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterDto dto)
+        public async Task<IActionResult> Register(RegisterDto registerDto)
         {
-            var token = await _authService.RegisterAsync(dto);
+            var token = await _authService.RegisterAsync(registerDto);
             return Ok(new { token });
         }
 
         // POST: api/Auth/login
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginDto dto)
+        public async Task<IActionResult> Login(LoginDto loginDto)
         {
-            var token = await _authService.LoginAsync(dto);
+            var token = await _authService.LoginAsync(loginDto);
             return Ok(new { token });
         }
     }

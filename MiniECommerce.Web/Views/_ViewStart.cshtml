@@ -1,3 +1,13 @@
 ﻿@{
-    Layout = "_Layout";
+    bool isAuth = Context.Request.Cookies.ContainsKey("JwtToken") ||
+                  Context.Response.Headers["Set-Cookie"].ToString().Contains("JwtToken");
+
+    if (isAuth)
+    {
+        Layout = "_Layout";
+    }
+    else
+    {
+        Layout = "_AuthLayout";
+    }
 }

@@ -21,9 +21,9 @@ namespace MiniECommerce.Business.Concrete
         {
             var orderItem = await _repository.GetByIdAsync(id);
             if (orderItem == null)
-                throw new Exception("OrderItem not found.");
+                throw new KeyNotFoundException("Order Item not found.");
 
-            _repository.Update(orderItem);
+            _repository.Delete(orderItem);
             await _repository.SaveChangesAsync();
         }
 
@@ -38,22 +38,31 @@ namespace MiniECommerce.Business.Concrete
         {
 
             if (id <= 0)
-                throw new Exception("OrderItem not found.");
+                throw new KeyNotFoundException("Order Item not found.");
 
             var orderItem = await _repository.GetByIdAsync(id);
 
             return _mapper.Map<OrderItemListDto>(orderItem);
         }
+        public async Task<bool> ToggleActivationAsync(int id)
+        {
+            var orderItem = await _repository.GetByIdAsync(id);
+            if (orderItem == null)
+                throw new KeyNotFoundException("Order not found.");
 
+            _repository.ToggleActivation(orderItem);
+            await _repository.SaveChangesAsync();
+            return orderItem.IsActive;
+        }
         public async Task UpdateAsync(OrderItemUpdateDto dto)
         {
             var orderItem = await _repository.GetByIdAsync(dto.Id);
-            if (orderItem != null)
-                throw new Exception("OrderItem not found.");
+            if (orderItem == null)
+                throw new KeyNotFoundException("Order Item not found.");
 
             _mapper.Map(dto, orderItem);
 
-            orderItem.UpdatedDate = DateTime.Now;
+            orderItem.UpdatedDate = DateTime.UtcNow;
 
             _repository.Update(orderItem);
             await _repository.SaveChangesAsync();

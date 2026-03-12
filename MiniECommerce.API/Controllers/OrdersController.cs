@@ -12,51 +12,43 @@ namespace MiniECommerce.API.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly IOrderService _orderService;
-        private readonly IMapper _mapper;
 
-        public OrdersController(IOrderService orderService, IMapper mapper)
+        public OrdersController(IOrderService orderService)
         {
             _orderService = orderService;
-            _mapper = mapper;
         }
 
         // GET: api/order
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var orders = await _orderService.GetAllAsync();
-            var orderDtos = _mapper.Map<List<OrderListDto>>(orders);
-            return Ok(orderDtos);
+            var orders = await _orderService.GetAllWithDetailsAsync();
+            return Ok(orders);
         }
 
         // GET: api/order/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var order = await _orderService.GetByIdAsync(id);
+            var order = await _orderService.GetByIdWithDetailsAsync(id);
             if (order == null)
             {
-                return NotFound("Sipariş bulunamadı.");
+                return NotFound(new { Message = $"Order with ID {id} not found." });
             }
 
-            var orderDto = _mapper.Map<OrderDetailDto>(order);
-            return Ok(orderDto);
+            return Ok(order);
         }
 
         // PUT: api/order/5
         [HttpPut("{id}")]
         [Authorize(Roles = "Administrator")]
-        public async Task<IActionResult> Update(int id, OrderUpdateDto orderUpdateDto)
+        public async Task<IActionResult> Update(OrderUpdateDto updateDto)
         {
-            var existingOrder = await _orderService.GetByIdAsync(id);
+            var existingOrder = await _orderService.GetByIdAsync(updateDto.Id);
             if (existingOrder == null)
-            {
-                return NotFound("Güncellenecek sipariş bulunamadı.");
-            }
+                return NotFound(new { Message = "No order found to update." });
 
-            _mapper.Map(orderUpdateDto, existingOrder);
-
-            await _orderService.UpdateAsync(orderUpdateDto);
+            await _orderService.UpdateAsync(updateDto);
             return NoContent();
         }
 
@@ -67,12 +59,10 @@ namespace MiniECommerce.API.Controllers
         {
             var order = await _orderService.GetByIdAsync(id);
             if (order == null)
-            {
-                return NotFound("Silinecek sipariş bulunamadı.");
-            }
+                return NotFound(new { Message = "No order found to delete." });
 
             await _orderService.DeleteAsync(order.Id);
-            return Ok("Sipariş başarıyla silindi.");
+            return Ok(new { Message = "Order successfully deleted." });
         }
     }
 }

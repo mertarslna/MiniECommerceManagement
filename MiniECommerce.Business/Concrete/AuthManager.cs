@@ -31,8 +31,8 @@ namespace MiniECommerce.Business.Services
                 Password = PasswordHelper.HashPassword(dto.Password),
                 IsActive = true,
                 UserType = UserType.Customer,
-                CreatedDate = DateTime.Now,
-                UpdatedDate = DateTime.Now
+                CreatedDate = DateTime.UtcNow,
+                UpdatedDate = DateTime.UtcNow
             };
 
             await _repository.AddAsync(user);

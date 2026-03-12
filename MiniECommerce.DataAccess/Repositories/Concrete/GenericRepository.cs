@@ -22,6 +22,11 @@ namespace MiniECommerce.DataAccess.Repositories.Concrete
         public async Task<T?> GetByIdAsync(int id) => await _dbSet.FindAsync(id);
         public async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
         public void Update(T entity) => _dbSet.Update(entity);
+        public void ToggleActivation(T entity)
+        {
+            entity.IsActive = !entity.IsActive;
+            _dbSet.Update(entity);
+        }
         public void Delete(T entity) => _dbSet.Remove(entity);
         public async Task<int> SaveChangesAsync() => await _context.SaveChangesAsync();
     }

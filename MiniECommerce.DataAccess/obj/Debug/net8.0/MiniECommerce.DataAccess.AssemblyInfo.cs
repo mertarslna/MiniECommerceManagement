@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiniECommerce.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e9a3f418bb87bfac2f2fe28af2cd7d29825d58f5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3eef3bdf357bc6ee1325846b6b639b191a90c03a")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiniECommerce.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiniECommerce.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

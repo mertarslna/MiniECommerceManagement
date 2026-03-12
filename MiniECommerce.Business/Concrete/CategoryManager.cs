@@ -43,8 +43,8 @@ namespace MiniECommerce.Business.Concrete
         {
             var category = _mapper.Map<Category>(dto);
             category.IsActive = true;
-            category.CreatedDate = DateTime.Now;
-            category.UpdatedDate = DateTime.Now;
+            category.CreatedDate = DateTime.UtcNow;
+            category.UpdatedDate = DateTime.UtcNow;
 
             await _repository.AddAsync(category);
             await _repository.SaveChangesAsync();
@@ -54,11 +54,11 @@ namespace MiniECommerce.Business.Concrete
         {
             var existingCategory = await _repository.GetByIdAsync(dto.Id);
             if (existingCategory == null)
-                throw new Exception("Category not found.");
+                throw new KeyNotFoundException("Category not found.");
 
             _mapper.Map(dto, existingCategory);
 
-            existingCategory.UpdatedDate = DateTime.Now;
+            existingCategory.UpdatedDate = DateTime.UtcNow;
 
             _repository.Update(existingCategory);
             await _repository.SaveChangesAsync();
@@ -68,7 +68,7 @@ namespace MiniECommerce.Business.Concrete
         {
             var category = await _repository.GetByIdAsync(id);
             if (category == null)
-                throw new Exception("Category not found.");
+                throw new KeyNotFoundException("Category not found.");
 
             _repository.Delete(category);
             await _repository.SaveChangesAsync();
@@ -77,10 +77,10 @@ namespace MiniECommerce.Business.Concrete
         public async Task<bool> ToggleActivationAsync(int id)
         {
             var category = await _repository.GetByIdAsync(id);
-            if (category is null) return false;
+            if (category == null)
+                throw new KeyNotFoundException("Category not found.");
 
-            category.IsActive = !category.IsActive;
-            _repository.Update(category);
+            _repository.ToggleActivation(category);
             await _repository.SaveChangesAsync();
             return true;
         }

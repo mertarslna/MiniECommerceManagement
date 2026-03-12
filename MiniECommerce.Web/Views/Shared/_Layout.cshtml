@@ -1,87 +1,130 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MiniECommerce Admin</title>
+    <title>@ViewData["Title"] - MiniECommerce Premium</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MiniECommerce.Web.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
-
-    <aside class="admin-sidebar" id="adminSidebar">
-        <div class="sidebar-brand">
-            <div class="brand-icon">
-                <i class="bi bi-shop"></i>
+    <div class="app-wrapper">
+        <!-- Sidebar -->
+        <aside class="app-sidebar" id="appSidebar">
+            <div class="sidebar-header">
+                <div class="brand-logo">
+                    <i class="bi bi-rocket-takeoff-fill"></i>
+                </div>
+                <span class="brand-name">MEC Panel</span>
             </div>
-            <span class="brand-text">MiniECommerce</span>
-        </div>
-        <nav class="sidebar-nav">
-            <div class="nav-label">Genel</div>
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"
-                       asp-controller="Home" asp-action="Index">
-                        <i class="bi bi-grid-1x2-fill"></i>
-                        <span>Ana Sayfa</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="nav-label">Yönetim</div>
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Product" ? "active" : "")"
-                       asp-controller="Product" asp-action="Index">
-                        <i class="bi bi-box-seam-fill"></i>
-                        <span>Ürünler</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Category" ? "active" : "")"
-                       asp-controller="Category" asp-action="Index">
-                        <i class="bi bi-tags-fill"></i>
-                        <span>Kategoriler</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Order" ? "active" : "")"
-                       asp-controller="Order" asp-action="Index">
-                        <i class="bi bi-truck"></i>
-                        <span>Siparişler</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-label">Dashboard</div>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")" 
+                               asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-grid-1x2-fill"></i>
+                                <span>Genel Bakış</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-    <header class="admin-header">
-        <div class="header-left">
-            <button class="sidebar-toggle" onclick="toggleSidebar()">
-                <i class="bi bi-list"></i>
-            </button>
-            <h1 class="page-title">@ViewData["Title"]</h1>
-        </div>
-    </header>
+                <div class="nav-section">
+                    <div class="nav-label">Yönetim Takımı</div>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Category" ? "active" : "")" 
+                               asp-controller="Category" asp-action="Index">
+                                <i class="bi bi-tags-fill"></i>
+                                <span>Kategoriler</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Product" ? "active" : "")" 
+                               asp-controller="Product" asp-action="Index">
+                                <i class="bi bi-box-seam-fill"></i>
+                                <span>Ürün Yönetimi</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Order" ? "active" : "")" 
+                               asp-controller="Order" asp-action="Index">
+                                <i class="bi bi-cart-check-fill"></i>
+                                <span>Siparişler</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-    <main class="admin-content">
-        @RenderBody()
-    </main>
+                <div class="nav-section">
+                    <div class="nav-label">Hesap</div>
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" asp-controller="Auth" asp-action="Logout">
+                                <i class="bi bi-box-arrow-left"></i>
+                                <span>Güvenli Çıkış</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
 
-    <footer class="admin-footer">
-        &copy; 2026 MiniECommerce &mdash; Yönetim Paneli
-    </footer>
+        <!-- Main Content -->
+        <main class="app-main">
+            <header class="top-nav">
+                <div class="d-flex align-items-center gap-3">
+                    <button class="btn btn-outline-p d-lg-none" onclick="toggleSidebar()">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <div class="search-bar d-none d-md-flex">
+                        <i class="bi bi-search text-muted"></i>
+                        <input type="text" placeholder="Hızlı arama...">
+                    </div>
+                </div>
+
+                <div class="user-actions">
+                    <div class="user-profile">
+                        <div class="user-avatar text-white">AD</div>
+                        <div class="d-none d-sm-block">
+                            <div class="fw-bold" style="font-size: 0.85rem;">Admin User</div>
+                            <div class="text-muted" style="font-size: 0.75rem;">Yönetici</div>
+                        </div>
+                        <i class="bi bi-chevron-down text-muted" style="font-size: 0.8rem;"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-view">
+                <div class="animate-fade-in">
+                    @RenderBody()
+                </div>
+            </div>
+
+            <footer class="p-4 text-center border-top border-secondary opacity-50" style="font-size: 0.8rem;">
+                &copy; 2026 MiniECommerce Premium Architecture &bull; Designed for Excellence
+            </footer>
+        </main>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script>
         function toggleSidebar() {
-            document.getElementById('adminSidebar').classList.toggle('show');
-            document.getElementById('sidebarOverlay').classList.toggle('show');
+            document.getElementById('appSidebar').classList.toggle('show');
         }
     </script>
     @await RenderSectionAsync("Scripts", required: false)

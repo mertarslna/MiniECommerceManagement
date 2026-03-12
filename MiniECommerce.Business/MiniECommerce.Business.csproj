@@ -14,8 +14,4 @@
     <ProjectReference Include="..\MiniECommerce.DataAccess\MiniECommerce.DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DTOs\User\" />
-  </ItemGroup>
-
 </Project>

@@ -1,0 +1,93 @@
+@model MiniECommerce.Web.Models.ProductUpdateViewModel
+
+@{
+    ViewData["Title"] = "Ürün Düzenle";
+}
+
+<div class="page-header d-flex justify-content-between align-items-center">
+    <div>
+        <h1 class="page-title">Ürün Güncelle</h1>
+        <p class="page-subtitle">Ürün bilgilerini ve stok durumunu güncelleyin.</p>
+    </div>
+    <a asp-action="Index" class="btn-premium btn-outline-p text-decoration-none">
+        <i class="bi bi-arrow-left"></i> Geri Dön
+    </a>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="glass-card">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div asp-validation-summary="ModelOnly" class="badge-p badge-danger mb-4 d-block text-start p-3"></div>
+
+                <div class="row g-4">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label class="form-label">Ürün Kimliği</label>
+                            <input class="form-input opacity-50" readonly value="#@Model.Id" />
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="CategoryId" class="form-label">Kategori</label>
+                            <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-input">
+                                <option value="">Seçiniz...</option>
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger small mt-1 d-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Description" class="form-label">Açıklama</label>
+                            <textarea asp-for="Description" class="form-input" rows="3" placeholder="Açıklama..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger small mt-1 d-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Price" class="form-label">Birim Fiyat (₺)</label>
+                            <input asp-for="Price" type="number" step="0.01" class="form-input" />
+                            <span asp-validation-for="Price" class="text-danger small mt-1 d-block"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Stock" class="form-label">Stok Adedi</label>
+                            <input asp-for="Stock" type="number" class="form-input" />
+                            <span asp-validation-for="Stock" class="text-danger small mt-1 d-block"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="form-label">Görünürlük</label>
+                            <div class="form-check form-switch mt-2">
+                                <input asp-for="IsActive" class="form-check-input" type="checkbox">
+                                <label class="form-check-label text-muted" for="IsActive">Satışa Açık</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="ImageUrl" class="form-label">Görsel URL</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-dark border-secondary text-muted"><i class="bi bi-image"></i></span>
+                                <input asp-for="ImageUrl" class="form-input" style="border-top-left-radius: 0; border-bottom-left-radius: 0;" />
+                            </div>
+                            <span asp-validation-for="ImageUrl" class="text-danger small mt-1 d-block"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5 pt-3 border-top border-secondary border-opacity-20 d-flex gap-3">
+                    <button type="submit" class="btn-premium btn-primary-p flex-grow-1 justify-content-center">
+                        <i class="bi bi-save"></i> Değişiklikleri Uygula
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

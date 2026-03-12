@@ -16,5 +16,13 @@ namespace MiniECommerce.DataAccess.Repositories.Concrete
                 .Include(p => p.Category)
                 .ToListAsync();
         }
+
+        public async Task<Product> GetByIdWithCategoriesAsync(int id)
+        {
+            return await _context.Products
+                .Where(p => p.Id == id)
+                .Include(p => p.Category)
+                .FirstOrDefaultAsync();
+        }
     }
 }

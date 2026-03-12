@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MiniECommerce.Web.Models.Category
+namespace MiniECommerce.Web.Models
 {
     public class CategoryUpdateViewModel
     {

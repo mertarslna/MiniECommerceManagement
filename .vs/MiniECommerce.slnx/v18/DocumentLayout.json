@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9FB5AF6F-6A03-56A0-FBAB-D8AC5CCB8173}|MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj|c:\\users\\merta\\desktop\\miniecommerce\\miniecommerce.dataaccess\\context\\initialmockdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FB5AF6F-6A03-56A0-FBAB-D8AC5CCB8173}|MiniECommerce.DataAccess\\MiniECommerce.DataAccess.csproj|solutionrelative:miniecommerce.dataaccess\\context\\initialmockdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|c:\\users\\merta\\desktop\\miniecommerce\\miniecommerce.web\\controllers\\category\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|solutionrelative:miniecommerce.web\\controllers\\category\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C0648B5-0449-846C-4CC7-3E202B9C825F}|MiniECommerce.Entity\\MiniECommerce.Entity.csproj|c:\\users\\merta\\desktop\\miniecommerce\\miniecommerce.entity\\enums\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C0648B5-0449-846C-4CC7-3E202B9C825F}|MiniECommerce.Entity\\MiniECommerce.Entity.csproj|solutionrelative:miniecommerce.entity\\enums\\usertype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{006A072F-7DFE-6FCC-980B-EBA4C085C564}|MiniECommerce.Business\\MiniECommerce.Business.csproj|c:\\users\\merta\\desktop\\miniecommerce\\miniecommerce.business\\concrete\\jwtmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{006A072F-7DFE-6FCC-980B-EBA4C085C564}|MiniECommerce.Business\\MiniECommerce.Business.csproj|solutionrelative:miniecommerce.business\\concrete\\jwtmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{006A072F-7DFE-6FCC-980B-EBA4C085C564}|MiniECommerce.Business\\MiniECommerce.Business.csproj|c:\\users\\merta\\desktop\\miniecommerce\\miniecommerce.business\\concrete\\authmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{006A072F-7DFE-6FCC-980B-EBA4C085C564}|MiniECommerce.Business\\MiniECommerce.Business.csproj|solutionrelative:miniecommerce.business\\concrete\\authmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|c:\\users\\merta\\desktop\\miniecommerce\\miniecommerce.web\\controllers\\auth\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|solutionrelative:miniecommerce.web\\controllers\\auth\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,59 +17,33 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 330,
+          "DockedWidth": 200,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InitialMockData.cs",
-              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.DataAccess\\Context\\InitialMockData.cs",
-              "RelativeDocumentMoniker": "MiniECommerce.DataAccess\\Context\\InitialMockData.cs",
-              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.DataAccess\\Context\\InitialMockData.cs",
-              "RelativeToolTip": "MiniECommerce.DataAccess\\Context\\InitialMockData.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBQAAACfAAAAAAAAAA==",
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Web\\Controllers\\Category\\CategoryController.cs",
+              "RelativeDocumentMoniker": "MiniECommerce.Web\\Controllers\\Category\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Web\\Controllers\\Category\\CategoryController.cs",
+              "RelativeToolTip": "MiniECommerce.Web\\Controllers\\Category\\CategoryController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAowAsAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T13:26:56.945Z",
+              "WhenOpened": "2026-03-12T13:34:45.756Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserType.cs",
-              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Entity\\Enums\\UserType.cs",
-              "RelativeDocumentMoniker": "MiniECommerce.Entity\\Enums\\UserType.cs",
-              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Entity\\Enums\\UserType.cs",
-              "RelativeToolTip": "MiniECommerce.Entity\\Enums\\UserType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Web\\Controllers\\Auth\\AuthController.cs",
+              "RelativeDocumentMoniker": "MiniECommerce.Web\\Controllers\\Auth\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Web\\Controllers\\Auth\\AuthController.cs",
+              "RelativeToolTip": "MiniECommerce.Web\\Controllers\\Auth\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T13:26:46.777Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "JwtManager.cs",
-              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Business\\Concrete\\JwtManager.cs",
-              "RelativeDocumentMoniker": "MiniECommerce.Business\\Concrete\\JwtManager.cs",
-              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Business\\Concrete\\JwtManager.cs",
-              "RelativeToolTip": "MiniECommerce.Business\\Concrete\\JwtManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T13:24:59.89Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AuthManager.cs",
-              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Business\\Concrete\\AuthManager.cs",
-              "RelativeDocumentMoniker": "MiniECommerce.Business\\Concrete\\AuthManager.cs",
-              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Business\\Concrete\\AuthManager.cs",
-              "RelativeToolTip": "MiniECommerce.Business\\Concrete\\AuthManager.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAYwDMAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T13:23:32.899Z",
+              "WhenOpened": "2026-03-12T13:34:29.026Z",
               "EditorCaption": ""
             }
           ]

@@ -34,7 +34,7 @@ namespace MiniECommerce.Business.Services
                 issuer: _config["JwtSettings:Issuer"],
                 audience: _config["JwtSettings:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(
+                expires: DateTime.UtcNow.AddMinutes(
                     int.Parse(_config["JwtSettings:ExpireMinutes"]!)),
                 signingCredentials: new SigningCredentials(
                     key, SecurityAlgorithms.HmacSha256)

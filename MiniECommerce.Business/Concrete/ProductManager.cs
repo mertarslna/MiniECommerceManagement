@@ -21,12 +21,13 @@ namespace MiniECommerce.Business.Concrete
         {
             var product = _mapper.Map<Product>(dto);
             await _repository.AddAsync(product);
+            await _repository.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
             var product = await _repository.GetByIdAsync(id);
-            if (product != null)
+            if (product == null)
                 throw new KeyNotFoundException("Product not found.");
             _repository.Delete(product);
             await _repository.SaveChangesAsync();
@@ -34,15 +35,15 @@ namespace MiniECommerce.Business.Concrete
 
         public async Task<IEnumerable<ProductListDto>> GetAllAsync()
         {
-            var products = await _repository.GetAllAsync();
+            var products = await _repository.GetAllWithCategoriesAsync();
             return _mapper.Map<IEnumerable<ProductListDto>>(products);
         }
 
         public async Task<ProductListDto> GetByIdAsync(int id)
         {
-            var product = await _repository.GetByIdAsync(id);
+            var product = await _repository.GetByIdWithCategoriesAsync(id);
             if (product == null)
-                return null;
+                throw new KeyNotFoundException("Product not found.");
 
             return _mapper.Map<ProductListDto>(product);
         }
@@ -53,9 +54,8 @@ namespace MiniECommerce.Business.Concrete
             if (product == null)
                 throw new KeyNotFoundException("Product not found.");
 
-            product.IsActive = !product.IsActive;
-            _repository.Update(product);
-
+            _repository.ToggleActivation(product);
+            await _repository.SaveChangesAsync();
             return product.IsActive;
         }
 
@@ -68,6 +68,7 @@ namespace MiniECommerce.Business.Concrete
 
             _mapper.Map(dto, existingProduct);
             _repository.Update(existingProduct);
+            await _repository.SaveChangesAsync();
         }
     }
 }

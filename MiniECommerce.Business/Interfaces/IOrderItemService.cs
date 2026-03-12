@@ -8,5 +8,7 @@ namespace MiniECommerce.Business.Interfaces
         Task<OrderItemListDto> GetByIdAsync(int id);
         Task UpdateAsync(OrderItemUpdateDto dto);
         Task DeleteAsync(int id);
+        Task<bool> ToggleActivationAsync(int id);
+
     }
 }

@@ -34,7 +34,7 @@ namespace MiniECommerce.Business.Concrete
         {
             var order = await _repository.GetByIdAsync(id);
             if (order == null)
-                throw new Exception("Order not found.");
+                throw new KeyNotFoundException("Order not found.");
 
             return _mapper.Map<OrderListDto>(order);
         }
@@ -43,16 +43,25 @@ namespace MiniECommerce.Business.Concrete
         {
             var order = await _repository.GetByIdWithDetailsAsync(id);
             if (order == null)
-                throw new Exception("Order not found.");
+                throw new KeyNotFoundException("Order not found.");
 
             return _mapper.Map<OrderDetailDto>(order);
         }
+        public async Task<bool> ToggleActivationAsync(int id)
+        {
+            var order = await _repository.GetByIdAsync(id);
+            if (order == null)
+                throw new KeyNotFoundException("Order not found.");
 
+            _repository.ToggleActivation(order);
+            await _repository.SaveChangesAsync();
+            return order.IsActive;
+        }
         public async Task UpdateAsync(OrderUpdateDto dto)
         {
             var existingOrder = await _repository.GetByIdAsync(dto.Id);
             if (existingOrder == null)
-                throw new Exception("Order not found.");
+                throw new KeyNotFoundException("Order not found.");
 
             _mapper.Map(dto, existingOrder);
 
@@ -64,7 +73,7 @@ namespace MiniECommerce.Business.Concrete
         {
             var order = await _repository.GetByIdAsync(id);
             if (order == null)
-                throw new Exception("Order not found.");
+                throw new KeyNotFoundException("Order not found.");
 
             order.Status = status;
             _repository.Update(order);
@@ -75,7 +84,7 @@ namespace MiniECommerce.Business.Concrete
         {
             var order = await _repository.GetByIdAsync(id);
             if (order == null)
-                throw new Exception("Order not found.");
+                throw new KeyNotFoundException("Order not found.");
 
             _repository.Delete(order);
             await _repository.SaveChangesAsync();

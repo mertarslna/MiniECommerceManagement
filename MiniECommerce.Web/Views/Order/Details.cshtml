@@ -1,0 +1,103 @@
+@model MiniECommerce.Web.Models.OrderDetailViewModel
+
+@{
+    ViewData["Title"] = "Sipariş Detayı";
+}
+
+<div class="page-header d-flex justify-content-between align-items-center">
+    <div>
+        <h1 class="page-title">Sipariş Detayları</h1>
+        <p class="page-subtitle">@Model.OrderNumber numaralı siparişin ayrıntıları.</p>
+    </div>
+    <a asp-action="Index" class="btn-premium btn-outline-p text-decoration-none">
+        <i class="bi bi-arrow-left"></i> Listeye Dön
+    </a>
+</div>
+
+<div class="row g-4">
+    <div class="col-lg-8">
+        <div class="glass-card mb-4">
+            <h3 class="fw-bold mb-4" style="font-size: 1.15rem;">Sipariş Edilen Ürünler</h3>
+            <div class="table-container">
+                <table class="modern-table">
+                    <thead>
+                        <tr>
+                            <th>Ürün</th>
+                            <th>Birim Fiyat</th>
+                            <th>Miktar</th>
+                            <th class="text-end">Toplam</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderItems)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="bg-secondary bg-opacity-10 p-1 rounded" style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center;">
+                                            @if (!string.IsNullOrEmpty(item.ProductImageUrl))
+                                            {
+                                                <img src="@item.ProductImageUrl" alt="@item.ProductName" style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                                            }
+                                            else
+                                            {
+                                                <i class="bi bi-box text-muted"></i>
+                                            }
+                                        </div>
+                                        <div>
+                                            <div class="fw-bold">@item.ProductName</div>
+                                            <div class="text-muted small">ID: #@item.ProductId</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>@item.UnitPrice.ToString("C2")</td>
+                                <td>@item.Quantity</td>
+                                <td class="text-end fw-bold">@((item.UnitPrice * item.Quantity).ToString("C2"))</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" class="text-end py-4 fw-bold">Genel Toplam:</td>
+                            <td class="text-end py-4 fw-bold text-primary fs-5">@Model.TotalPrice.ToString("C2")</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="glass-card mb-4">
+            <h3 class="fw-bold mb-4" style="font-size: 1.15rem;">Müşteri Bilgileri</h3>
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-circle">
+                    <i class="bi bi-person-fill fs-4"></i>
+                </div>
+                <div>
+                    <div class="fw-bold fs-5">@Model.UserName</div>
+                    <div class="text-muted small">Müşteri ID: #@Model.UserId</div>
+                </div>
+            </div>
+            
+            <div class="border-top border-secondary border-opacity-20 pt-3">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Sipariş Tarihi:</span>
+                    <span class="small fw-semibold">@Model.OrderDate.ToString("dd.MM.yyyy HH:mm")</span>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted small">Sipariş Durumu:</span>
+                    <span class="badge-p badge-success">Onaylandı</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card bg-primary bg-opacity-10 border-primary border-opacity-20 text-center py-4">
+            <h4 class="fw-bold mb-3">İşlemler</h4>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary"><i class="bi bi-printer me-2"></i> Siparişi Yazdır</button>
+                <button class="btn btn-outline-primary"><i class="bi bi-envelope me-2"></i> Fatura Gönder</button>
+            </div>
+        </div>
+    </div>
+</div>

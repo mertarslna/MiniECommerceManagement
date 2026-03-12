@@ -11,14 +11,10 @@ namespace MiniECommerce.API.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
-        private readonly ICategoryService _categoryService;
-        private readonly IMapper _mapper;
 
-        public ProductsController(IProductService productService, ICategoryService categoryService, IMapper mapper)
+        public ProductsController(IProductService productService)
         {
             _productService = productService;
-            _categoryService = categoryService;
-            _mapper = mapper;
         }
 
         // GET: api/Products
@@ -35,11 +31,9 @@ namespace MiniECommerce.API.Controllers
         {
             var productDto = await _productService.GetByIdAsync(id);
             if (productDto == null)
-                return NotFound(new { Message = "Product not found." });
+                return NotFound(new { Message = $"Product with ID {id} not found." });
 
-            // Güncelleme senaryosu için mapper kullanımı örneği
-            var updateDto = _mapper.Map<ProductUpdateDto>(productDto);
-            return Ok(updateDto);
+            return Ok(productDto);
         }
 
         // POST: api/Products
@@ -53,7 +47,7 @@ namespace MiniECommerce.API.Controllers
 
         // PUT: api/Products
         [Authorize(Roles = "Administrator")]
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> Update([FromBody] ProductUpdateDto updateDto)
         {
             await _productService.UpdateAsync(updateDto);
@@ -67,7 +61,7 @@ namespace MiniECommerce.API.Controllers
         {
             var product = await _productService.GetByIdAsync(id);
             if (product == null)
-                return NotFound(new { Message = "No product found to delete." });
+                return NotFound(new { Message = $"No product found with ID {id} to delete." });
 
             await _productService.DeleteAsync(id);
             return Ok(new { Message = "Product successfully deleted." });
