@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|c:\\users\\merta\\desktop\\miniecommerce\\miniecommerce.web\\controllers\\category\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|solutionrelative:miniecommerce.web\\controllers\\category\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AA8A132-9123-FAAF-7E13-DE7A87343CE2}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{8AA8A132-9123-FAAF-7E13-DE7A87343CE2}|C:\\Users\\Merta\\Desktop\\MiniECommerce\\Migration Terminal Komut.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{8AA8A132-9123-FAAF-7E13-DE7A87343CE2}|\u00C7\u00F6z\u00FCm \u00D6\u011Feleri{8AA8A132-9123-FAAF-7E13-DE7A87343CE2}|solutionrelative:Migration Terminal Komut.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|c:\\users\\merta\\desktop\\miniecommerce\\miniecommerce.web\\controllers\\auth\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1007AFA1-8D7D-E1DE-58F3-53AA1F1C7E83}|MiniECommerce.Web\\MiniECommerce.Web.csproj|solutionrelative:miniecommerce.web\\controllers\\auth\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EF1B5A3A-BDC6-48DE-8846-9CC1E3F06865}|MiniECommerce.API\\MiniECommerce.API.csproj|c:\\users\\merta\\desktop\\miniecommerce\\miniecommerce.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF1B5A3A-BDC6-48DE-8846-9CC1E3F06865}|MiniECommerce.API\\MiniECommerce.API.csproj|solutionrelative:miniecommerce.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Web\\Controllers\\Category\\CategoryController.cs",
-              "RelativeDocumentMoniker": "MiniECommerce.Web\\Controllers\\Category\\CategoryController.cs",
-              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Web\\Controllers\\Category\\CategoryController.cs",
-              "RelativeToolTip": "MiniECommerce.Web\\Controllers\\Category\\CategoryController.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAowAsAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T13:34:45.756Z",
+              "Title": "Migration Terminal Komut.txt",
+              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\Migration Terminal Komut.txt",
+              "RelativeDocumentMoniker": "Migration Terminal Komut.txt",
+              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\Migration Terminal Komut.txt*",
+              "RelativeToolTip": "Migration Terminal Komut.txt*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-03-12T13:54:32.866Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Web\\Controllers\\Auth\\AuthController.cs",
-              "RelativeDocumentMoniker": "MiniECommerce.Web\\Controllers\\Auth\\AuthController.cs",
-              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.Web\\Controllers\\Auth\\AuthController.cs",
-              "RelativeToolTip": "MiniECommerce.Web\\Controllers\\Auth\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAAANAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.API\\Program.cs",
+              "RelativeDocumentMoniker": "MiniECommerce.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Merta\\Desktop\\MiniECommerce\\MiniECommerce.API\\Program.cs",
+              "RelativeToolTip": "MiniECommerce.API\\Program.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAIwDYAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-12T13:34:29.026Z",
+              "WhenOpened": "2026-03-12T13:53:45.414Z",
               "EditorCaption": ""
             }
           ]

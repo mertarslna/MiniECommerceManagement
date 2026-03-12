@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MiniECommerce.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class initialMigration : Migration
+    public partial class InitialMigaration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -148,11 +148,11 @@ namespace MiniECommerce.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedDate", "Email", "IsActive", "Name", "Password", "UpdatedDate", "UserType" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "mert@admin.com", true, "Mert Arslan", "056B51B6C969185BCF98534F9ED29A2F:703828C8E6074862C3442ADB52F344D85745EB84C5BCF3844EC94F8DAC607B0B", new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
-                    { 2, new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "ahmet@test.com", true, "Ahmet Yılmaz", "A2C6277F6E175DBD274B30FCC6850BC9:A533BB0AB835AEA393AC6BB2145B811C8042B9CD16D2508038D57A1E4722F918", new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
-                    { 3, new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "ayse@test.com", true, "Ayşe Demir", "014FFDD5FD8A01F31A0B10B330D13A09:F076DB6AAB0C1D208D6016FE48619EEDE453E8C11AF5A2399166263A4CE62642", new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
-                    { 4, new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "mehmet@test.com", true, "Mehmet Can", "216A2AA79AD9F041DDD6F1ADAE0AD0DC:FA2C5C6943D84033BE67DF98E8E1BF848747E77ABC7EF1C4002DCBD5A10F34BB", new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
-                    { 5, new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "zeynep@test.com", true, "Zeynep Kaya", "40517A96B1D67CF627417E46F922B58D:78874F32991533EB6DB25B15F2841D8E2CACF3547D75E3112F63D982301F6675", new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 }
+                    { 1, new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "mert@admin.com", true, "Mert Arslan", "A9D3056C7FE16B831EB03261AD8DF04F:3869373228CABC2E12604D5C1E815AB90D20F4CCCFC2158C79395E7EF6DF11DF", new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 1 },
+                    { 2, new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "ahmet@test.com", true, "Ahmet Yılmaz", "A2434DCEAE475B59AC8C507968B11957:7DD849B3A7DA9D7AB775CB40A8FC32BA3792445E752D5ED498F282C102171049", new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
+                    { 3, new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "ayse@test.com", true, "Ayşe Demir", "28C8CCAE307A53B80270A0209D20E630:FF46DCE7A19C77C9187C256C008EBB79F016D02EC2331F682806FEB3720221E5", new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
+                    { 4, new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "mehmet@test.com", true, "Mehmet Can", "3B2D5F2179E80C35B831BCEB904F60E7:815944181A9A08D3E478644BD86FC29C771A1FC551080F417DFFF3223DF41006", new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 },
+                    { 5, new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "zeynep@test.com", true, "Zeynep Kaya", "5063BD3BF2514F0A5DA7FC8695E13730:BB54947790F7698A12A5A2D30CED3CD2D5F22756500F6A65E02F47DACC7D03D5", new DateTime(2026, 3, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 2 }
                 });
 
             migrationBuilder.InsertData(
